@@ -2,24 +2,6 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>run.jpg</Source>
-      <Name>run</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\run.xnb</Output>
-      <Time>2014-12-14T02:27:09.4793603+01:00</Time>
-    </Item>
-    <Item>
-      <Source>running.jpg</Source>
-      <Name>running</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\running.xnb</Output>
-      <Time>2014-12-14T02:43:57.1211659+01:00</Time>
-    </Item>
-    <Item>
       <Source>plong1.wav</Source>
       <Name>plong1</Name>
       <Importer>WavImporter</Importer>
@@ -55,6 +37,105 @@
       <Options>None</Options>
       <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\run3.xnb</Output>
       <Time>2014-12-17T00:29:19.3823887+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Pause.png</Source>
+      <Name>Pause</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\Pause.xnb</Output>
+      <Time>2014-12-22T22:17:00.788592+01:00</Time>
+    </Item>
+    <Item>
+      <Source>ex.jpg</Source>
+      <Name>ex</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\ex.xnb</Output>
+      <Time>2014-12-20T23:58:30.0811005+01:00</Time>
+    </Item>
+    <Item>
+      <Source>GameThumbnail.png</Source>
+      <Name>GameThumbnail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\GameThumbnail.xnb</Output>
+      <Time>2014-12-22T19:01:05.8797056+01:00</Time>
+    </Item>
+    <Item>
+      <Source>MenuBackgroundTransp.png</Source>
+      <Name>MenuBackgroundTransp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\MenuBackgroundTransp.xnb</Output>
+      <Time>2014-12-22T21:47:49.7348934+01:00</Time>
+    </Item>
+    <Item>
+      <Source>PausedBackground.png</Source>
+      <Name>PausedBackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\PausedBackground.xnb</Output>
+      <Time>2014-12-22T21:53:22.3629186+01:00</Time>
+    </Item>
+    <Item>
+      <Source>menu2.png</Source>
+      <Name>menu2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\menu2.xnb</Output>
+      <Time>2014-12-22T22:16:52.6510741+01:00</Time>
+    </Item>
+    <Item>
+      <Source>play2.png</Source>
+      <Name>play2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\play2.xnb</Output>
+      <Time>2014-12-22T22:17:00.8160923+01:00</Time>
+    </Item>
+    <Item>
+      <Source>replay3.png</Source>
+      <Name>replay3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\replay3.xnb</Output>
+      <Time>2014-12-22T22:17:00.8560923+01:00</Time>
+    </Item>
+    <Item>
+      <Source>ResumeButton.png</Source>
+      <Name>ResumeButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\ResumeButton.xnb</Output>
+      <Time>2014-12-22T22:17:00.8660923+01:00</Time>
+    </Item>
+    <Item>
+      <Source>help.png</Source>
+      <Name>help</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\help.xnb</Output>
+      <Time>2014-12-22T22:46:27.17231+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Options2.png</Source>
+      <Name>Options2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\Options2.xnb</Output>
+      <Time>2014-12-22T23:06:36.7636542+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

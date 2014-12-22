@@ -7,6 +7,7 @@ namespace ProjectGame.model
 {
     class Tile
     {
+        //  the class is created by Dainel Toll.
         private enum TileType
         {
             EMPTY = 0,

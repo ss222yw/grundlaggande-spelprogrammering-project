@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ProjectGame.view
 {
-    class Camera 
+    class Camera
     {
         //Source code (https://code.google.com/p/1dv437arkanoid/source/browse/trunk/Collisions/Collisions2/View/Camera.cs)
         private Vector2 m_modelCenterPosition = new Vector2(0, 0);
@@ -66,6 +66,6 @@ namespace ProjectGame.view
             }
         }
 
-        
+
     }
-}   
+}

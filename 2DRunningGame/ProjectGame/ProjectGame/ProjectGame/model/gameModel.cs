@@ -9,7 +9,6 @@ namespace ProjectGame.model
 {
     class gameModel
     {
-
         private float frame = 0;
         private Vector2 position;
         private bool hasJumped;
@@ -19,8 +18,8 @@ namespace ProjectGame.model
         public gameModel()
         {
             hasJumped = true;
-            position = new Vector2(0,20);
-            velocity = new Vector2(0,0);
+            position = new Vector2(0, 20);
+            velocity = new Vector2(0, 0);
         }
 
 
@@ -32,11 +31,12 @@ namespace ProjectGame.model
         }
 
 
+
         // Auto running to the right
         public void characterAutoMovingToRight()
         {
             position.X += 0.1f;
-            
+
             if (frame >= 7)
             {
                 frame = 0;
@@ -50,7 +50,7 @@ namespace ProjectGame.model
         // player running faster.
         public void characterMovingFasterToRight()
         {
-            
+
             position.X += 0.2f;
 
             if (frame >= 7)
@@ -66,9 +66,9 @@ namespace ProjectGame.model
         //Player running slowly.
         public void charcterMovingSlowlyToRight()
         {
-            
+
             position.X += 0.05f;
-           
+
             if (frame >= 7)
             {
                 frame = 0;
@@ -88,35 +88,35 @@ namespace ProjectGame.model
             hasJumped = true;
         }
 
-       public void isJumping()
-       {
-             position += velocity;
-             if (hasJumped == true)
-              {
-                 // Give the veclocity the same value when it was before jumping.
+        public void isJumping()
+        {
+            position += velocity;
+            if (hasJumped == true)
+            {
+                // Give the veclocity the same value when it was before jumping.
                 velocity.Y += 0.01f * 1;
                 // No animation when jumping
                 frame = 0;
-              }
-       }
+            }
+        }
 
-       public void isPositionXLargerThanWindowsH()
-       { 
-           // player is not jumping player y position lager or equals level height
-            if (position.Y  >= Level.g_levelHeight)
+        public void isPositionXLargerThanWindowsH()
+        {
+            // player is not jumping player y position lager or equals level height
+            if (position.Y >= Level.g_levelHeight)
             {
                 hasJumped = false;
             }
-       }
+        }
 
-    
-       public void isNotJumping()
-       {
-           if (hasJumped == false)
-           {
-               velocity.Y = 0f;
-           }
-       }
+
+        public void isNotJumping()
+        {
+            if (hasJumped == false)
+            {
+                velocity.Y = 0f;
+            }
+        }
 
         public Vector2 getVelocity()
         {

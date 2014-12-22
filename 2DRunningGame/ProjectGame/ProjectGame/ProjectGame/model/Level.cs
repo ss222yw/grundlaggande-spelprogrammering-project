@@ -8,7 +8,7 @@ namespace ProjectGame.model
     class Level
     {
         // Code took from (https://code.google.com/p/1dv437arkanoid/source/browse/trunk/Collisions/Collisions2/Model/Level.cs).
-        public const int g_levelWidth = 80;
+        public const int g_levelWidth = 100;
         public const int g_levelHeight = 20;
 
         internal Tile[,] m_tiles = new Tile[g_levelWidth, g_levelHeight];
@@ -19,7 +19,7 @@ namespace ProjectGame.model
         }
 
         private void GenerateLevel()
-        {   
+        {
             // Random rand = new Random();
             for (int x = 0; x < g_levelWidth; x++)
             {
