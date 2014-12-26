@@ -9,135 +9,187 @@ namespace ProjectGame.model
 {
     class gameModel
     {
-        private float frame = 0;
-        private Vector2 position;
-        private bool hasJumped;
-        private Vector2 velocity;
+        //Some of code created by Dainel Toll.
+        private Level m_level;
+        private Player m_player;
+        private bool m_hasCollidedWithGround = false;
 
-
-        public gameModel()
+        class CollisionDetails
         {
-            hasJumped = true;
-            position = new Vector2(0, 20);
-            velocity = new Vector2(0, 0);
+          
+            public Vector2 m_speedAfterCollision;
+            public Vector2 m_positionAfterCollision;
+            public bool m_hasCollidedWithGround = false;
+            
+            public CollisionDetails(Vector2 a_oldPos, Vector2 a_velocity)
+            {
+                m_positionAfterCollision = a_oldPos;
+               m_speedAfterCollision = a_velocity;
+              
+            }
+
+        }
+
+        public gameModel(string levelString)
+        {
+            m_player = new Player();
+            m_level = new Level(levelString);
+         
         }
 
 
-        private Level m_level = new Level();
+        public void UpdatePlayer(float a_elapsedTime)
+        {
+            //Get the old position
+            Vector2 oldPos = m_player.GetPosition();
+
+            //Get the new position
+            m_player.Update(a_elapsedTime);
+
+            Vector2 newPos = m_player.GetPosition();
+
+            //Collide
+            m_hasCollidedWithGround = false;
+            Vector2 speed = m_player.GetSpeed();
+
+            if (didCollide(newPos, m_player.m_sizes))
+            {
+                CollisionDetails details = getCollisionDetails(oldPos, newPos, m_player.m_sizes, speed);
+                m_hasCollidedWithGround = details.m_hasCollidedWithGround;
+
+                //set the new speed and position after collision
+                m_player.SetPosition(details.m_positionAfterCollision);
+            //    m_player.SetSpeed(details.m_speedAfterCollision);
+            }
+        }
+
+
+        private bool didCollide(Vector2 a_centerBottom, Vector2 a_size)
+        {
+            FloatRectangle occupiedArea = FloatRectangle.createFromCenterBottom(a_centerBottom, a_size);
+            if (m_level.IsCollidingAt(occupiedArea))
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+        private CollisionDetails getCollisionDetails(Vector2 a_oldPos, Vector2 a_newPosition, Vector2 a_size, Vector2 a_velocity)
+        {
+            CollisionDetails ret = new CollisionDetails(a_oldPos, a_velocity);
+
+            Vector2 slidingXPosition = new Vector2(a_newPosition.X, a_oldPos.Y); //Y movement ignored
+            Vector2 slidingYPosition = new Vector2(a_oldPos.X, a_newPosition.Y); //X movement ignored
+
+            if (didCollide(slidingXPosition, a_size) == false)
+            {
+                
+                return doOnlyXMovement(ref a_velocity, ret, ref slidingXPosition);
+            }
+            if (didCollide(slidingYPosition, a_size) == false)
+            {
+
+                return doOnlyYMovement(ref a_velocity, ret, ref slidingYPosition);
+            }
+            else
+            {
+                return doStandStill(ret, a_velocity);
+            }
+
+        }
+
+        private static CollisionDetails doStandStill(CollisionDetails ret, Vector2 a_velocity)
+        {
+            if (a_velocity.Y > 0)
+            {
+                ret.m_hasCollidedWithGround = true;
+            }
+            return ret;
+        }
+
+        private static CollisionDetails doOnlyYMovement(ref Vector2 a_velocity, CollisionDetails ret, ref Vector2 slidingYPosition)
+        {
+            //a_velocity.X *= -0.50f; //bounce from wall
+          //  ret.m_speedAfterCollision = a_velocity;
+            ret.m_positionAfterCollision = slidingYPosition;
+           
+            return ret;
+        }
+
+        private static CollisionDetails doOnlyXMovement(ref Vector2 a_velocity, CollisionDetails ret, ref Vector2 slidingXPosition)
+        {
+            ret.m_positionAfterCollision = slidingXPosition;
+            //did we slide on ground?
+            if (a_velocity.Y > 0)
+            {
+                ret.m_hasCollidedWithGround = true;
+            }
+
+             //ret.m_speedAfterCollision = doSetSpeedOnVerticalCollision(a_velocity);
+            return ret;
+        }
+
 
         internal Level GetLevel()
         {
             return m_level;
         }
 
-
+        internal Vector2 GetPlayerPosition()
+        {
+            return m_player.GetPosition();
+        }
 
         // Auto running to the right
         public void characterAutoMovingToRight()
         {
-            position.X += 0.1f;
-
-            if (frame >= 7)
-            {
-                frame = 0;
-            }
-            else
-            {
-                frame = frame + 0.1f;
-            }
+            m_player.characterAutoMovingToRight();
         }
 
         // player running faster.
         public void characterMovingFasterToRight()
         {
 
-            position.X += 0.2f;
-
-            if (frame >= 7)
-            {
-                frame = 0;
-            }
-            else
-            {
-                frame = frame + 0.2f;
-            }
+            m_player.characterMovingFasterToRight();
         }
 
         //Player running slowly.
         public void charcterMovingSlowlyToRight()
         {
 
-            position.X += 0.05f;
-
-            if (frame >= 7)
-            {
-                frame = 0;
-            }
-            else
-            {
-                frame = frame + 0.05f;
-            }
+            m_player.charcterMovingSlowlyToRight();
+            
         }
 
-        //minus vlaue to jumping .
         public void charcterIsJumping()
         {
 
-            velocity.Y = -0.22f;
-
-            hasJumped = true;
+            m_player.charcterIsJumping();
         }
-
-        public void isJumping()
-        {
-            position += velocity;
-            if (hasJumped == true)
-            {
-                // Give the veclocity the same value when it was before jumping.
-                velocity.Y += 0.01f * 1;
-                // No animation when jumping
-                frame = 0;
-            }
-        }
-
-        public void isPositionXLargerThanWindowsH()
-        {
-            // player is not jumping player y position lager or equals level height
-            if (position.Y >= Level.g_levelHeight)
-            {
-                hasJumped = false;
-            }
-        }
-
-
-        public void isNotJumping()
-        {
-            if (hasJumped == false)
-            {
-                velocity.Y = 0f;
-            }
-        }
-
-        public Vector2 getVelocity()
-        {
-            return velocity;
-        }
-
 
         public float getFrame()
         {
-            return frame;
+            return m_player.getFrame();
         }
+
 
         public bool getHasJumped()
         {
-            return hasJumped;
+            return m_hasCollidedWithGround;
         }
 
-        internal Vector2 getPosition()
+        public Vector2 getPlayerDefaultPosition()
         {
-            return position;
+           return m_player.playerPosition = m_player.DefaultPlayerPosition; 
         }
 
+        public void endOfTheGame()
+        {
+            if (m_player.PlayerPosition.X >= Level.g_levelWidth || m_player.PlayerPosition.Y >= Level.g_levelHeight)
+            {
+                getPlayerDefaultPosition();
+            }
+        }
     }
 }

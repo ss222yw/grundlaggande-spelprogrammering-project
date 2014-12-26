@@ -16,16 +16,19 @@ namespace ProjectGame.controller
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private View m_View;
-        private gameModel model;
-        private float elapased;
+
         private SoundEffect m_soundEffect;
         private Song m_Song;
         private Camera m_Camera;
-        private bool paused = false;
+        private View m_View;
+        private gameModel model;
         private MenuControlls m_MenuController;
         private MenuView m_MenuView;
         private GameState CurrentGameState = GameState.MainMenu;
+
+        private float elapased;
+        private bool paused = false;
+
 
         public MasterController()
         {
@@ -57,16 +60,16 @@ namespace ProjectGame.controller
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             IsMouseVisible = true;
-
+   
             // TODO: use this.Content to load your game content here
             m_View = new View(GraphicsDevice, Content);
-            model = new gameModel();
+            model = new gameModel(Level.Maps(1));
             m_soundEffect = Content.Load<SoundEffect>("plong1");
             m_Song = Content.Load<Song>("BackgroundSong");
             m_Camera = new Camera();
             m_MenuView = new MenuView(GraphicsDevice, Content, spriteBatch);
             m_MenuController = new MenuControlls(GraphicsDevice);
-            MediaPlayer.Play(m_Song);
+          //  MediaPlayer.Play(m_Song);
         }
 
         /// <summary>
@@ -86,12 +89,6 @@ namespace ProjectGame.controller
         protected override void Update(GameTime gameTime)
         {
 
-            // Allows the game to exits
-            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-            //    this.Exit();
-
-
-
             MouseState m_mouse = Mouse.GetState();
 
             //if exit button is clicked then exit the game.
@@ -101,8 +98,6 @@ namespace ProjectGame.controller
             }
 
             // TODO: Add your update logic here
-
-
             elapased += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             // Update the game when is not paused.
@@ -125,19 +120,19 @@ namespace ProjectGame.controller
                     model.characterAutoMovingToRight();
                 }
 
-                if (m_View.IsCharacterJumping() && model.getHasJumped() == false)
+                if (m_View.IsCharacterJumping() && model.getHasJumped())
                 {
+                    //model.DoJump();
                     model.charcterIsJumping();
                     m_soundEffect.Play();
                 }
 
-                model.isJumping();
+                float time = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-                model.isPositionXLargerThanWindowsH();
-
-                model.isNotJumping();
+                model.UpdatePlayer(time);
 
             }
+
 
             // swith stats to take care about which button is clicked for menu.
             switch (CurrentGameState)
@@ -146,12 +141,10 @@ namespace ProjectGame.controller
 
                     if (m_MenuController.isCklickedToPlay)
                     {
-
                         CurrentGameState = GameState.Playing;
                         paused = false;
                         m_MenuController.isCklickedToReturn = false;
                         m_MenuController.isClickedToCMenu = false;
-
                     }
 
                     if (m_MenuController.isCklickedToSeInfo)
@@ -160,6 +153,15 @@ namespace ProjectGame.controller
                         m_MenuController.isCklickedToSeInfo = true;
                         m_MenuController.isCklickedToPlay = false;
                         m_MenuController.isCklickedToReturn = false;
+                    }
+
+                    if (m_MenuController.isClickedToRePlay)
+                    {
+                        CurrentGameState = GameState.Playing;
+                        model.getPlayerDefaultPosition();
+                        paused = false;
+                        m_MenuController.isCklickedToReturn = false;
+                        m_MenuController.isClickedToCMenu = false;
                     }
 
                     break;
@@ -174,6 +176,7 @@ namespace ProjectGame.controller
                         paused = true;
                         m_MenuController.isCklickedToPlay = false;
                         m_MenuController.isCklickedToSeInfo = false;
+                        m_MenuController.isClickedToRePlay = false;
                     }
 
                     break;
@@ -191,7 +194,7 @@ namespace ProjectGame.controller
                         m_MenuController.isCklickedToSeInfo = false;
                         m_MenuController.isClickedToResume = false;
                         m_MenuController.isClickedToCMenu = false;
-
+                        m_MenuController.isClickedToRePlay = false;
                     }
 
                     if (m_MenuController.isCklickedToReturn == true)
@@ -201,6 +204,7 @@ namespace ProjectGame.controller
                         paused = true;
                         m_MenuController.isCklickedToPlay = false;
                         m_MenuController.isCklickedToSeInfo = false;
+                        m_MenuController.isClickedToRePlay = false;
                     }
 
                     break;
@@ -215,14 +219,15 @@ namespace ProjectGame.controller
                         m_MenuController.isClickedToResume = true;
                         m_MenuController.isCklickedToReturn = false;
                         m_MenuController.isClickedToCMenu = false;
-
+                        m_MenuController.isClickedToRePlay = false;
                     }
 
                     break;
 
             }
             m_MenuController.mousePosition(m_mouse);
-
+            //float h = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            //model.Update(h);
             base.Update(gameTime);
         }
 
@@ -238,14 +243,14 @@ namespace ProjectGame.controller
             Level level = model.GetLevel();
 
             //update camera
-            m_Camera.CenterOn(model.getPosition(),
+            m_Camera.CenterOn(model.GetPlayerPosition(),
                               new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height),
                               new Vector2(Level.g_levelWidth, Level.g_levelHeight));
 
-            m_Camera.SetZoom(88);
+            m_Camera.SetZoom(64);
 
             //draw background and player 
-            m_View.DrawLevel(level, m_Camera, model.getPosition(), model);
+            m_View.DrawLevel(level, m_Camera, model.GetPlayerPosition(), model);
 
 
             // TODO: Add your drawing code here 
@@ -257,6 +262,7 @@ namespace ProjectGame.controller
 
                     m_MenuView.DrawMenu();
                     m_MenuView.DrawButtons();
+                    m_MenuView.DrawRePlayTexture();
                     paused = true;
                     break;
 
@@ -275,7 +281,7 @@ namespace ProjectGame.controller
                     MediaPlayer.Resume();
                     m_MenuView.DrawPauseTexture();
                     m_MenuView.DrawReturnButton();
-
+                    model.endOfTheGame();
                     break;
 
                 case GameState.Options:

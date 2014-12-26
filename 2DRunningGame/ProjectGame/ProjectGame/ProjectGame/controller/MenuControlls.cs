@@ -11,9 +11,9 @@ namespace ProjectGame.controller
     class MenuControlls
     {
 
-        private Rectangle m_PlayRectangel, m_HowToPlayRectangel, m_mouseRectangel, m_BackButtonRectangel, m_quitRectangel, m_ResumeRectangel, m_PauseRectangelBtn;
-        private Vector2 m_PlayPosition, m_HowToPlayPosition, m_MenuPosition, m_quitPosition, m_ResumePosition, m_pauseBtnPosition, m_ButtonsImgSize;
-        public bool isCklickedToPlay, isCklickedToSeInfo, isCklickedToReturn, isClickedToQuit, isClickedToResume, isClickedToCMenu;
+        private Rectangle m_PlayRectangel, m_HowToPlayRectangel, m_mouseRectangel, m_BackButtonRectangel, m_quitRectangel, m_ResumeRectangel, m_PauseRectangelBtn,m_rePlayRectangle;
+        private Vector2 m_PlayPosition, m_HowToPlayPosition, m_MenuPosition, m_quitPosition, m_ResumePosition, m_pauseBtnPosition, m_ButtonsImgSize,m_rePlayPosition;
+        public bool isCklickedToPlay, isCklickedToSeInfo, isCklickedToReturn, isClickedToQuit, isClickedToResume, isClickedToCMenu, isClickedToRePlay;
         private GraphicsDevice GraphicsDevice;
 
 
@@ -28,9 +28,10 @@ namespace ProjectGame.controller
 
             m_PlayPosition = new Vector2(GraphicsDevice.Viewport.Width / 3, GraphicsDevice.Viewport.Height / 4);
             m_HowToPlayPosition = new Vector2(GraphicsDevice.Viewport.Width / 3, GraphicsDevice.Viewport.Height / 2.5f);
-            m_quitPosition = new Vector2(GraphicsDevice.Viewport.Width / 3, GraphicsDevice.Viewport.Height / 1.8f);
+            m_quitPosition = new Vector2(GraphicsDevice.Viewport.Width / 3, GraphicsDevice.Viewport.Height / 1.4f);
             m_ResumePosition = new Vector2(GraphicsDevice.Viewport.Width / 3, GraphicsDevice.Viewport.Height / 4);
             m_ButtonsImgSize = new Vector2(GraphicsDevice.Viewport.Width / 4, GraphicsDevice.Viewport.Height / 8);
+            m_rePlayPosition = new Vector2(GraphicsDevice.Viewport.Width / 3, GraphicsDevice.Viewport.Height / 1.8f);
             m_pauseBtnPosition = new Vector2(1, 1);
             m_MenuPosition = new Vector2(50, 2);
         }
@@ -91,6 +92,11 @@ namespace ProjectGame.controller
         public Rectangle pauseBtnRectangel()
         {
             return m_PauseRectangelBtn = new Rectangle((int)m_pauseBtnPosition.X, (int)m_pauseBtnPosition.Y, (int)m_ButtonsImgSize.X / 4, (int)m_ButtonsImgSize.Y / 2);
+        }
+
+        public Rectangle rePlayBtnRectangle()
+        {
+            return m_rePlayRectangle = new Rectangle((int)m_rePlayPosition.X,(int)m_rePlayPosition.Y, (int)m_ButtonsImgSize.X / 2, (int)m_ButtonsImgSize.Y );
         }
 
         /// <summary>
@@ -159,6 +165,15 @@ namespace ProjectGame.controller
                 if (mouse.LeftButton == ButtonState.Pressed)
                 {
                     isClickedToCMenu = true;
+                }
+            }
+
+
+            if (m_mouseRectangel.Intersects(rePlayBtnRectangle()))
+            {
+                if (mouse.LeftButton == ButtonState.Pressed)
+                {
+                    isClickedToRePlay = true;
                 }
             }
 

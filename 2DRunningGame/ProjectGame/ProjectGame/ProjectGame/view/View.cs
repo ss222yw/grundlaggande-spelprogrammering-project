@@ -16,10 +16,10 @@ namespace ProjectGame.view
         // Some of code took from (https://code.google.com/p/1dv437arkanoid/source/browse/trunk/Collisions/Collisions2/View/View.cs).
 
         private SpriteBatch m_spriteBatch;
-        private Texture2D m_Texture;
-        private Texture2D m_TextureBackground;
         private GraphicsDevice m_graphics;
-
+        private Texture2D m_Texture,m_tileTexture,m_emptyTexture,m_blockTexture,m_backgroundTexture,m_WaterTexture;
+        //note that the view scale is less than texture scale
+        private Rectangle destrect;
 
         /// <summary>
         /// Constructor (loading all images).
@@ -31,10 +31,14 @@ namespace ProjectGame.view
             m_spriteBatch = new SpriteBatch(GraphicsDevice);
 
             m_Texture = Content.Load<Texture2D>("run3");
-            m_TextureBackground = Content.Load<Texture2D>("Tiles3");
+            m_blockTexture = Content.Load<Texture2D>("Tiles1");
+            m_emptyTexture = Content.Load<Texture2D>("1");
+            m_backgroundTexture = Content.Load<Texture2D>("transparent");
+            m_WaterTexture = Content.Load<Texture2D>("waterTile");
 
             this.m_graphics = GraphicsDevice;
         }
+
 
 
         /// <summary>
@@ -59,19 +63,41 @@ namespace ProjectGame.view
                 {
                     Vector2 viewPos = a_camera.GetViewPosition(x, y, viewportSize);
 
+                    if (a_level.m_tiles[x, y] == TileType.BLOCKED)
+                    {
+                        m_tileTexture = m_blockTexture;
+                    }
+                    else if(a_level.m_tiles[x,y] == TileType.Background)
+                    {
+                        m_tileTexture = m_backgroundTexture;
+                    }
+
+                    else if (a_level.m_tiles[x, y] == TileType.Water)
+                    {
+                        m_tileTexture = m_WaterTexture;
+                    }
+
+                    else if (a_level.m_tiles[x, y] == TileType.EMPTY)
+                    {
+                        m_tileTexture = m_emptyTexture;
+                    }
                     //Destination rectangle in windows coordinates only scaling
                     Rectangle destRect = new Rectangle((int)viewPos.X, (int)viewPos.Y, (int)scale, (int)scale);
-                    m_spriteBatch.Draw(m_TextureBackground, destRect, Color.White);
+                    m_spriteBatch.Draw(m_tileTexture, destRect, Color.White);
                 }
             }
 
             Vector2 viewpos = a_camera.GetViewPosition(postion.X, postion.Y, viewportSize);
 
-            Rectangle destrect = new Rectangle((int)(viewpos.X - scale / 2), (int)(viewpos.Y - scale), (int)scale, (int)scale);
+            destrect = new Rectangle((int)(viewpos.X - scale / 2), (int)(viewpos.Y - scale), (int)scale, (int)scale);
             Rectangle animationRect = new Rectangle(m_Texture.Width / 8 * (int)model.getFrame(), 0, m_Texture.Width / 8, m_Texture.Height / 2);
             m_spriteBatch.Draw(m_Texture, destrect, animationRect, Color.White);
             m_spriteBatch.End();
         }
+
+
+
+
 
 
         /// <summary>

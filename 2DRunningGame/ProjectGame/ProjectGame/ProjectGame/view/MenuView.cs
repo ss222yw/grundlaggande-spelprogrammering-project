@@ -11,7 +11,7 @@ namespace ProjectGame.view
 {
     class MenuView
     {
-        private Texture2D m_MenuTexture, m_buttonTexture, m_backToMenuTextue, m_OpitionsTexture, m_PauseTexture, m_HowToPlayTexture, m_PausedTexture, m_QuitTexture, m_ResumeTexture;
+        private Texture2D m_MenuTexture, m_buttonTexture, m_backToMenuTextue, m_OpitionsTexture, m_PauseTexture, m_HowToPlayTexture, m_PausedTexture, m_QuitTexture, m_ResumeTexture,m_RePlayTexture;
         private Microsoft.Xna.Framework.Content.ContentManager Content;
         private SpriteBatch m_spriteBatch;
         private GraphicsDevice m_graphics;
@@ -40,6 +40,7 @@ namespace ProjectGame.view
             m_PausedTexture = Content.Load<Texture2D>("PausedBackground");
             m_QuitTexture = Content.Load<Texture2D>("ex");
             m_ResumeTexture = Content.Load<Texture2D>("ResumeButton");
+            m_RePlayTexture = Content.Load<Texture2D>("replay3");
 
             m_menuController = new MenuControlls(GraphicsDevice);
 
@@ -138,5 +139,11 @@ namespace ProjectGame.view
             m_spriteBatch.End();
         }
 
+        public void DrawRePlayTexture()
+        {
+            m_spriteBatch.Begin();
+            m_spriteBatch.Draw(m_RePlayTexture, m_menuController.rePlayBtnRectangle(), Color.White);
+            m_spriteBatch.End();
+        }
     }
 }

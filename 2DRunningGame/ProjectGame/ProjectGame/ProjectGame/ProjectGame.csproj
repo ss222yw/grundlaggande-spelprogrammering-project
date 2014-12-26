@@ -76,9 +76,11 @@
     <Compile Include="controller\Enum.cs" />
     <Compile Include="controller\MasterController.cs" />
     <Compile Include="controller\MenuControlls.cs" />
+    <Compile Include="model\Collider.cs" />
+    <Compile Include="model\FloatRectangle.cs" />
     <Compile Include="model\gameModel.cs" />
     <Compile Include="model\Level.cs" />
-    <Compile Include="model\Tile.cs" />
+    <Compile Include="model\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="view\Camera.cs" />

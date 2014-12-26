@@ -137,6 +137,69 @@
       <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\Options2.xnb</Output>
       <Time>2014-12-22T23:06:36.7636542+01:00</Time>
     </Item>
+    <Item>
+      <Source>Tiles1.jpg</Source>
+      <Name>Tiles1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\Tiles1.xnb</Output>
+      <Time>2014-12-23T23:18:36.0252132+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles2.jpg</Source>
+      <Name>Tiles2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\Tiles2.xnb</Output>
+      <Time>2014-12-23T23:18:36.0552132+01:00</Time>
+    </Item>
+    <Item>
+      <Source>waterTile.jpg</Source>
+      <Name>waterTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\waterTile.xnb</Output>
+      <Time>2014-12-25T21:20:38.6654164+01:00</Time>
+    </Item>
+    <Item>
+      <Source>transparent.png</Source>
+      <Name>transparent</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\transparent.xnb</Output>
+      <Time>2014-12-26T01:43:21.3226582+01:00</Time>
+    </Item>
+    <Item>
+      <Source>2.png</Source>
+      <Name>2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\2.xnb</Output>
+      <Time>2014-12-26T01:46:15.1860514+01:00</Time>
+    </Item>
+    <Item>
+      <Source>1.jpg</Source>
+      <Name>1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\1.xnb</Output>
+      <Time>2014-12-26T01:49:34.1617078+01:00</Time>
+    </Item>
+    <Item>
+      <Source>5.png</Source>
+      <Name>5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\5.xnb</Output>
+      <Time>2014-12-26T01:55:17.4164824+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{1F33FFB6-EC28-401C-98E4-254C2340E562}</ContentProjectGUID>

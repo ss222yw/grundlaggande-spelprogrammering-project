@@ -14,3 +14,11 @@ Content\replay3.xnb
 Content\ResumeButton.xnb
 Content\help.xnb
 Content\Options2.xnb
+Content\Tiles1.xnb
+Content\Tiles2.xnb
+Content\waterTile.xnb
+Content\transparent.xnb
+Content\2.xnb
+Content\1.xnb
+Content\5.xnb
+Content\Level1.txt

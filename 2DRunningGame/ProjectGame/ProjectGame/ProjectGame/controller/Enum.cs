@@ -14,4 +14,12 @@ namespace ProjectGame.controller
         GameOver,
         Playing
     }
+
+    enum TileType
+    {
+        EMPTY = 0,
+        BLOCKED,
+        Background,
+        Water
+    };
 }
