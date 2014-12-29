@@ -5,16 +5,22 @@ using System.Text;
 
 namespace ProjectGame.controller
 {
+    /// <summary>
+    /// gamestate enum.
+    /// </summary>
     enum GameState
     {
         MainMenu,
         Pause,
         Options,
-        End,
         GameOver,
-        Playing
+        Playing,
+        Finish
     }
 
+    /// <summary>
+    /// tile type enum.
+    /// </summary>
     enum TileType
     {
         EMPTY = 0,

@@ -18,8 +18,9 @@ namespace ProjectGame.view
         private SpriteBatch m_spriteBatch;
         private GraphicsDevice m_graphics;
         private Texture2D m_Texture,m_tileTexture,m_emptyTexture,m_blockTexture,m_backgroundTexture,m_WaterTexture;
-        //note that the view scale is less than texture scale
         private Rectangle destrect;
+
+        
 
         /// <summary>
         /// Constructor (loading all images).
@@ -32,10 +33,10 @@ namespace ProjectGame.view
 
             m_Texture = Content.Load<Texture2D>("run3");
             m_blockTexture = Content.Load<Texture2D>("Tiles1");
-            m_emptyTexture = Content.Load<Texture2D>("1");
-            m_backgroundTexture = Content.Load<Texture2D>("transparent");
+            m_emptyTexture = Content.Load<Texture2D>("test2");
+            m_backgroundTexture = Content.Load<Texture2D>("glass");
             m_WaterTexture = Content.Load<Texture2D>("waterTile");
-
+            
             this.m_graphics = GraphicsDevice;
         }
 
@@ -92,6 +93,8 @@ namespace ProjectGame.view
             destrect = new Rectangle((int)(viewpos.X - scale / 2), (int)(viewpos.Y - scale), (int)scale, (int)scale);
             Rectangle animationRect = new Rectangle(m_Texture.Width / 8 * (int)model.getFrame(), 0, m_Texture.Width / 8, m_Texture.Height / 2);
             m_spriteBatch.Draw(m_Texture, destrect, animationRect, Color.White);
+
+
             m_spriteBatch.End();
         }
 
@@ -129,6 +132,13 @@ namespace ProjectGame.view
             return Keyboard.GetState().IsKeyDown(Keys.Space);
         }
 
-
+        /// <summary>
+        /// return bool if the user is pressed the enter button on keyboard or not.
+        /// </summary>
+        /// <returns>enter/returns>
+        public bool IsClickedToPlayAgain()
+        {
+            return Keyboard.GetState().IsKeyDown(Keys.Enter);
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace ProjectGame.controller
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        private SoundEffect m_soundEffect;
+        private SoundEffect m_soundEffect,m_destroyedEffect,m_waterEffect;
         private Song m_Song;
         private Camera m_Camera;
         private View m_View;
@@ -26,14 +26,22 @@ namespace ProjectGame.controller
         private MenuView m_MenuView;
         private GameState CurrentGameState = GameState.MainMenu;
 
+        private SpriteFont m_NrOfLifes ,m_LevelsFont;
+        private SplitterView m_splitterView;
+        private int CurrentLevel = 1;
         private float elapased;
         private bool paused = false;
+        private Vector2 m_levelsTextPosition;
 
 
         public MasterController()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            //graphics.PreferredBackBufferWidth = 600;
+            //graphics.PreferredBackBufferHeight = 300;
+            //graphics.ApplyChanges();
         }
 
 
@@ -60,16 +68,27 @@ namespace ProjectGame.controller
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             IsMouseVisible = true;
-   
-            // TODO: use this.Content to load your game content here
+
+
+            m_levelsTextPosition = new Vector2(GraphicsDevice.Viewport.Width / 1.35f, GraphicsDevice.Viewport.Height / 100); 
             m_View = new View(GraphicsDevice, Content);
-            model = new gameModel(Level.Maps(1));
             m_soundEffect = Content.Load<SoundEffect>("plong1");
+            m_destroyedEffect = Content.Load<SoundEffect>("test");
+            m_waterEffect = Content.Load<SoundEffect>("watereffect");
             m_Song = Content.Load<Song>("BackgroundSong");
-            m_Camera = new Camera();
-            m_MenuView = new MenuView(GraphicsDevice, Content, spriteBatch);
+            m_Camera = new Camera(GraphicsDevice.Viewport);
             m_MenuController = new MenuControlls(GraphicsDevice);
-          //  MediaPlayer.Play(m_Song);
+            m_MenuView = new MenuView(GraphicsDevice, Content, spriteBatch, m_MenuController);
+            MediaPlayer.Play(m_Song);
+            m_NrOfLifes = Content.Load<SpriteFont>("SpriteFont1");
+            m_LevelsFont = Content.Load<SpriteFont>("LevelsFont");
+           
+
+            m_splitterView = new SplitterView(GraphicsDevice, Content);
+
+            
+            // TODO: use this.Content to load your game content here
+            model = new gameModel(Level.Maps(CurrentLevel));
         }
 
         /// <summary>
@@ -103,29 +122,86 @@ namespace ProjectGame.controller
             // Update the game when is not paused.
             if (paused == false)
             {
-
-                //Cheack keyboard input.
-                if (m_View.IsCharacterMovingToRight())
+                if (CurrentLevel == 1)
                 {
-                    model.characterMovingFasterToRight();
+                    //Cheack keyboard input.
+                    if (m_View.IsCharacterMovingToRight())
+                    {
+                        model.characterMovingFasterToRight();
+                    }
+
+                    else if (m_View.IsCharacterMovingToLeft())
+                    {
+                        model.charcterMovingSlowlyToRight();
+                    }
+
+                    else
+                    {
+                        model.characterAutoMovingToRight();
+                    }
+
+                    if (m_View.IsCharacterJumping() && model.getHasJumped())
+                    {
+                        //model.DoJump();
+                        model.charcterIsJumping();
+                        m_soundEffect.Play();
+                    }
                 }
 
-                else if (m_View.IsCharacterMovingToLeft())
+                else if (CurrentLevel == 2)
                 {
-                    model.charcterMovingSlowlyToRight();
+                    //Cheack keyboard input.
+                    if (m_View.IsCharacterMovingToRight())
+                    {
+                        model.characterMovingFasterToRight2();
+                    }
+
+                    else if (m_View.IsCharacterMovingToLeft())
+                    {
+                        model.charcterMovingSlowlyToRight2();
+                    }
+
+                    else
+                    {
+                        model.characterAutoMovingToRight2();
+                    }
+
+                    if (m_View.IsCharacterJumping() && model.getHasJumped())
+                    {
+                        //model.DoJump();
+                        model.charcterIsJumping();
+                        m_soundEffect.Play();
+                    }
                 }
 
-                else
+
+                else if (CurrentLevel == 3)
                 {
-                    model.characterAutoMovingToRight();
+                    //Cheack keyboard input.
+                    if (m_View.IsCharacterMovingToRight())
+                    {
+                        model.characterMovingFasterToRight3();
+                    }
+
+                    else if (m_View.IsCharacterMovingToLeft())
+                    {
+                        model.charcterMovingSlowlyToRight3();
+                    }
+
+                    else
+                    {
+                        model.characterAutoMovingToRight3();
+                    }
+
+                    if (m_View.IsCharacterJumping() && model.getHasJumped())
+                    {
+                        //model.DoJump();
+                        model.charcterIsJumping();
+                        m_soundEffect.Play();
+                    }
                 }
 
-                if (m_View.IsCharacterJumping() && model.getHasJumped())
-                {
-                    //model.DoJump();
-                    model.charcterIsJumping();
-                    m_soundEffect.Play();
-                }
+
 
                 float time = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -157,6 +233,7 @@ namespace ProjectGame.controller
 
                     if (m_MenuController.isClickedToRePlay)
                     {
+                        model.newLifes();
                         CurrentGameState = GameState.Playing;
                         model.getPlayerDefaultPosition();
                         paused = false;
@@ -170,14 +247,7 @@ namespace ProjectGame.controller
 
                 case GameState.Options:
 
-                    if (m_MenuController.isCklickedToReturn)
-                    {
-                        CurrentGameState = GameState.MainMenu;
-                        paused = true;
-                        m_MenuController.isCklickedToPlay = false;
-                        m_MenuController.isCklickedToSeInfo = false;
-                        m_MenuController.isClickedToRePlay = false;
-                    }
+                    Menu();
 
                     break;
 
@@ -185,6 +255,10 @@ namespace ProjectGame.controller
 
                 case GameState.Playing:
 
+                    model.gameOver();
+                    model.endOfTheGame();
+
+                   
 
                     if (m_MenuController.isClickedToCMenu == true)
                     {
@@ -195,17 +269,33 @@ namespace ProjectGame.controller
                         m_MenuController.isClickedToResume = false;
                         m_MenuController.isClickedToCMenu = false;
                         m_MenuController.isClickedToRePlay = false;
+                        m_MenuController.IsClickedToPlayAgain = false;
                     }
 
-                    if (m_MenuController.isCklickedToReturn == true)
+                    Menu();
+
+                    if (model.isGameOver)
                     {
-
-                        CurrentGameState = GameState.MainMenu;
-                        paused = true;
+                        CurrentGameState = GameState.GameOver;
                         m_MenuController.isCklickedToPlay = false;
-                        m_MenuController.isCklickedToSeInfo = false;
-                        m_MenuController.isClickedToRePlay = false;
+                        m_MenuController.IsClickedToPlayAgain = false;
+                        model.isGameOver = false;
+                        paused = true;
+
                     }
+
+                    if (model.isLevelCompleted)
+                    {
+                        CurrentGameState = GameState.Finish;
+                        paused = true;
+                        m_MenuController.isClickedToContinue = false;
+                    }
+
+                    if (model.GetPlayerPosition().Y > Level.g_levelHeight && model.hasCollidedWidthTheLeft() == false)
+                    {
+                        m_waterEffect.Play();
+                    }
+                   
 
                     break;
 
@@ -224,11 +314,63 @@ namespace ProjectGame.controller
 
                     break;
 
+
+                case GameState.GameOver:
+
+                    
+                    if (m_MenuController.IsClickedToPlayAgain || m_View.IsClickedToPlayAgain())
+                    {
+                        model.getPlayerDefaultPosition();
+
+                        model.isGameOver = false;
+                        paused = false;
+                        model.newLifes();
+                        CurrentLevel = 1;
+                        model = new gameModel(Level.Maps(CurrentLevel));
+                        CurrentGameState = GameState.Playing;
+                    }
+
+                    Menu();
+                    break;
+                case GameState.Finish:
+
+                    if (m_MenuController.isClickedToContinue)
+                    {
+                        model.getPlayerDefaultPosition();
+
+                        model.isLevelCompleted = false;
+                        m_MenuController.isClickedToRePlay = false;
+                        m_MenuController.IsClickedToPlayAgain = false;
+                        m_MenuController.isClickedToContinue = false;
+                        paused = true;
+
+                        if (CurrentLevel == 1 || CurrentLevel == 2)
+                        {
+                            model = new gameModel(Level.Maps(CurrentLevel += 1));
+                            CurrentGameState = GameState.Playing;
+                        }
+
+                    }
+                    break;
             }
             m_MenuController.mousePosition(m_mouse);
             //float h = (float)gameTime.ElapsedGameTime.TotalSeconds;
             //model.Update(h);
             base.Update(gameTime);
+        }
+
+        private void Menu()
+        {
+            if (m_MenuController.isCklickedToReturn == true)
+            {
+
+                CurrentGameState = GameState.MainMenu;
+                paused = true;
+                m_MenuController.isCklickedToPlay = false;
+                m_MenuController.isCklickedToSeInfo = false;
+                m_MenuController.isClickedToRePlay = false;
+                m_MenuController.IsClickedToPlayAgain = false;
+            }
         }
 
         /// <summary>
@@ -238,16 +380,17 @@ namespace ProjectGame.controller
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.White);
-
-            //get the playerposition for the view
+            spriteBatch.Begin();
             Level level = model.GetLevel();
+            //get the playerposition for the view
+            
 
             //update camera
             m_Camera.CenterOn(model.GetPlayerPosition(),
                               new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height),
                               new Vector2(Level.g_levelWidth, Level.g_levelHeight));
 
-            m_Camera.SetZoom(64);
+            m_Camera.SetZoom(72);
 
             //draw background and player 
             m_View.DrawLevel(level, m_Camera, model.GetPlayerPosition(), model);
@@ -258,6 +401,7 @@ namespace ProjectGame.controller
             // Switch sats to draw the right texture in the right gamestate.
             switch (CurrentGameState)
             {
+
                 case GameState.MainMenu:
 
                     m_MenuView.DrawMenu();
@@ -277,11 +421,40 @@ namespace ProjectGame.controller
 
                 case GameState.Playing:
 
+                    if (model.hasCollidedWidthTheLeft() == true)
+                    {
+                        m_destroyedEffect.Play();
+                        m_splitterView.draw((float)gameTime.ElapsedGameTime.TotalSeconds);
+                    }
+
+
+                    if (CurrentLevel == 1)
+                    {
+                        spriteBatch.DrawString(m_LevelsFont, "Level one", m_levelsTextPosition, Color.Black);
+                    }
+                    else if (CurrentLevel == 2)
+                    {
+                        spriteBatch.DrawString(m_LevelsFont, "Level two", m_levelsTextPosition, Color.Black);
+                    }
+                    else if (CurrentLevel == 3)
+                    {
+                        spriteBatch.DrawString(m_LevelsFont, "Level three", m_levelsTextPosition, Color.Black);
+                    }
+
                     paused = false;
                     MediaPlayer.Resume();
                     m_MenuView.DrawPauseTexture();
                     m_MenuView.DrawReturnButton();
                     model.endOfTheGame();
+                   
+                    
+                    var Count = model.nrOfLifes();
+                    spriteBatch.DrawString(m_NrOfLifes, "Lifes" + " = " + Count, new Vector2(GraphicsDevice.Viewport.Width / 1.35f, GraphicsDevice.Viewport.Height / 18), Color.Black);
+                    
+                     
+                   
+                    
+                    
                     break;
 
                 case GameState.Options:
@@ -292,8 +465,30 @@ namespace ProjectGame.controller
 
                     break;
 
-            }
+                case GameState.GameOver:
+                    MediaPlayer.Stop();
+                    m_MenuView.DrawGameOver();
+                    m_MenuView.DrawPlayAgainBtn();
+                    m_MenuView.DrawReturnButton();
 
+                    break;
+
+
+                case GameState.Finish:
+                    if (CurrentLevel == 1 || CurrentLevel == 2)
+                    {
+                        m_MenuView.DrawCompletedLevel();
+                        m_MenuView.DrawContinueBtn();
+                    }
+                    else {
+                        m_MenuView.DrawTheEnd();
+                        m_MenuView.drawExit();
+                    }
+                    MediaPlayer.Stop();
+
+                    break;
+            }
+            spriteBatch.End();
             base.Draw(gameTime);
         }
 

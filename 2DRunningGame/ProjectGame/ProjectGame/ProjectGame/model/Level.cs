@@ -12,16 +12,26 @@ namespace ProjectGame.model
     {
         // some of Code took from (https://code.google.com/p/1dv437arkanoid/source/browse/trunk/Collisions/Collisions2/Model/Level.cs).
 
-        public const int g_levelWidth = 80;
+        public const int g_levelWidth = 140;
         public const int g_levelHeight = 15;
 
         private string m_levels;
 
         internal TileType[,] m_tiles = new TileType[g_levelWidth, g_levelHeight];
+        private  string levelString;
+        private bool isGameOver;
 
-        public Level(string levels)
+        //public Level(string levels)
+        //{
+        //    m_levels = levels;
+        //    GenerateLevel();
+        //}
+
+        public Level(string levelString)
         {
-            m_levels = levels;
+            // TODO: Complete member initialization
+            m_levels = levelString;
+           // this.isGameOver = isGameOver;
             GenerateLevel();
         }
 
@@ -81,6 +91,7 @@ namespace ProjectGame.model
         /// <returns></returns>
         public static string Maps(int currentLevel)
         {
+
             using (StreamReader sr = new StreamReader(System.IO.Path.GetFullPath(String.Format("Content/Level{0}.txt", currentLevel))))
             {
                 string lines = sr.ReadToEnd();
