@@ -17,10 +17,19 @@ namespace ProjectGame.view
 
         private SpriteBatch m_spriteBatch;
         private GraphicsDevice m_graphics;
-        private Texture2D m_Texture,m_tileTexture,m_emptyTexture,m_blockTexture,m_backgroundTexture,m_WaterTexture;
+        private Texture2D m_Texture, m_tileTexture, m_emptyTexture, m_blockTexture, m_backgroundTexture, m_WaterTexture, m_cloudTexture, m_ghostTexture;
         private Rectangle destrect;
-
-        
+        private Texture2D m_ExplosionTexture;
+        private Camera camera;
+        private Vector2 size;
+        private int numFramesX = 4;
+        private int imgSize;
+        private Rectangle destRectGhost;
+        private Vector2 ghostViewPos;
+        private Vector2 viewportSize;
+        private float scale;
+        private Camera m_camera;
+        private gameModel m_model;
 
         /// <summary>
         /// Constructor (loading all images).
@@ -32,13 +41,17 @@ namespace ProjectGame.view
             m_spriteBatch = new SpriteBatch(GraphicsDevice);
 
             m_Texture = Content.Load<Texture2D>("run3");
-            m_blockTexture = Content.Load<Texture2D>("Tiles1");
-            m_emptyTexture = Content.Load<Texture2D>("test2");
+            m_blockTexture = Content.Load<Texture2D>("g1");
+            m_emptyTexture = Content.Load<Texture2D>("background");
             m_backgroundTexture = Content.Load<Texture2D>("glass");
             m_WaterTexture = Content.Load<Texture2D>("waterTile");
-            
+            m_cloudTexture = Content.Load<Texture2D>("blue");
+            m_ghostTexture = Content.Load<Texture2D>("ghost");
+
             this.m_graphics = GraphicsDevice;
         }
+
+
 
 
 
@@ -50,11 +63,14 @@ namespace ProjectGame.view
         /// <param name="a_camera"></param>
         /// <param name="postion"></param>
         /// <param name="model"></param>
-        public void DrawLevel(Level a_level, Camera a_camera, Vector2 postion, gameModel model)
+        public void DrawLevel(Level a_level, Camera a_camera, gameModel model)
         {
 
-            Vector2 viewportSize = new Vector2(m_graphics.Viewport.Width, m_graphics.Viewport.Height);
-            float scale = a_camera.GetScale();
+            viewportSize = new Vector2(m_graphics.Viewport.Width, m_graphics.Viewport.Height);
+            scale = a_camera.GetScale();
+
+            m_camera = a_camera;
+            m_model = model;
 
             m_spriteBatch.Begin();
 
@@ -64,11 +80,12 @@ namespace ProjectGame.view
                 {
                     Vector2 viewPos = a_camera.GetViewPosition(x, y, viewportSize);
 
+
                     if (a_level.m_tiles[x, y] == TileType.BLOCKED)
                     {
                         m_tileTexture = m_blockTexture;
                     }
-                    else if(a_level.m_tiles[x,y] == TileType.Background)
+                    else if (a_level.m_tiles[x, y] == TileType.Background)
                     {
                         m_tileTexture = m_backgroundTexture;
                     }
@@ -77,31 +94,77 @@ namespace ProjectGame.view
                     {
                         m_tileTexture = m_WaterTexture;
                     }
+                    else if (a_level.m_tiles[x, y] == TileType.Cloud)
+                    {
+                        m_tileTexture = m_cloudTexture;
+                    }
 
-                    else if (a_level.m_tiles[x, y] == TileType.EMPTY)
+                    else if (a_level.m_tiles[Level.g_levelWidth / 2, Level.g_levelHeight / 2] == TileType.EMPTY)
                     {
                         m_tileTexture = m_emptyTexture;
                     }
                     //Destination rectangle in windows coordinates only scaling
                     Rectangle destRect = new Rectangle((int)viewPos.X, (int)viewPos.Y, (int)scale, (int)scale);
+
                     m_spriteBatch.Draw(m_tileTexture, destRect, Color.White);
+
                 }
             }
 
-            Vector2 viewpos = a_camera.GetViewPosition(postion.X, postion.Y, viewportSize);
+            Color color;
+            if (model.hasCollidedWidthTheLeft())
+            {
+                color = Color.Red;
+            }
+            else
+            {
+                color = Color.White;
 
+            }
+
+
+            Vector2 viewpos = a_camera.GetViewPosition(model.GetPlayerPosition().X, model.GetPlayerPosition().Y, viewportSize);
             destrect = new Rectangle((int)(viewpos.X - scale / 2), (int)(viewpos.Y - scale), (int)scale, (int)scale);
             Rectangle animationRect = new Rectangle(m_Texture.Width / 8 * (int)model.getFrame(), 0, m_Texture.Width / 8, m_Texture.Height / 2);
-            m_spriteBatch.Draw(m_Texture, destrect, animationRect, Color.White);
+
+            //draw tiles.
+            m_spriteBatch.Draw(m_Texture, destrect, animationRect, color);
 
 
             m_spriteBatch.End();
         }
 
 
+        /// <summary>
+        /// Draw ghost texture.
+        /// </summary>
+        public void drawGhost()
+        {
+            ghostViewPos = m_camera.GetViewPosition(m_model.getGhostPosition().X, m_model.GetPlayerPosition().Y, viewportSize);
+            destRectGhost = new Rectangle((int)(ghostViewPos.X - scale / 2), (int)(ghostViewPos.Y - scale), (int)scale, (int)scale);
 
+            m_spriteBatch.Begin();
+            m_spriteBatch.Draw(m_ghostTexture, destRectGhost, Color.White);
+            m_spriteBatch.End();
+        }
 
+        /// <summary>
+        /// return
+        /// </summary>
+        /// <returns>ghost rectangle</returns>
+        public Rectangle ghostRectangle()
+        {
+            return destRectGhost;
+        }
 
+        /// <summary>
+        /// return
+        /// </summary>
+        /// <returns>player rectangle</returns>
+        public Rectangle playerRectangle()
+        {
+            return destrect;
+        }
 
         /// <summary>
         /// return bool if user has press a keyboard right button or not.

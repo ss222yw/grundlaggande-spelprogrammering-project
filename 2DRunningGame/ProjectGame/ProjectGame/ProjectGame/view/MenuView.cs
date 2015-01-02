@@ -11,13 +11,13 @@ namespace ProjectGame.view
 {
     class MenuView
     {
-        private Texture2D m_MenuTexture, m_buttonTexture, m_backToMenuTextue, m_OpitionsTexture, m_PauseTexture, m_HowToPlayTexture, m_PausedTexture, m_QuitTexture, m_ResumeTexture, m_RePlayTexture, m_GameOverTexture, m_completedTexture, m_PlayAginTexture, m_continueTexture,m_theEndTexture;
+        private Texture2D m_MenuTexture, m_buttonTexture, m_backToMenuTextue, m_OpitionsTexture, m_PauseTexture, m_HowToPlayTexture, m_PausedTexture, m_QuitTexture, m_ResumeTexture, m_RePlayTexture, m_GameOverTexture, m_completedTexture, m_PlayAginTexture, m_continueTexture, m_theEndTexture;
         private Microsoft.Xna.Framework.Content.ContentManager Content;
         private SpriteBatch m_spriteBatch;
         private GraphicsDevice m_graphics;
         private MenuControlls m_menuController;
         private float m_Transparent = 0.8f;
-        
+
 
         /// <summary>
         /// Construct (load menus images.)
@@ -50,7 +50,9 @@ namespace ProjectGame.view
             m_PlayAginTexture = Content.Load<Texture2D>("PlayAgain");
             m_continueTexture = Content.Load<Texture2D>("continueButton");
             m_theEndTexture = Content.Load<Texture2D>("theEnd");
-            
+
+
+
         }
 
 
@@ -87,7 +89,7 @@ namespace ProjectGame.view
         public void DrawCompletedLevel()
         {
             Rectangle completedRectangel = new Rectangle(0, 0, m_graphics.Viewport.Width, m_graphics.Viewport.Height);
-            m_spriteBatch.Draw(m_completedTexture,completedRectangel,Color.White * m_Transparent);
+            m_spriteBatch.Draw(m_completedTexture, completedRectangel, Color.White * m_Transparent);
         }
 
         public void DrawTheEnd()
@@ -141,6 +143,9 @@ namespace ProjectGame.view
             m_spriteBatch.Draw(m_PauseTexture, m_menuController.pauseBtnRectangel(), Color.White * m_Transparent);
         }
 
+
+
+
         /// <summary>
         /// draw replay button.
         /// </summary>
@@ -173,6 +178,7 @@ namespace ProjectGame.view
         {
             m_spriteBatch.Draw(m_QuitTexture, m_menuController.quitRectangel(), Color.White * m_Transparent);
         }
-        
+
+
     }
 }

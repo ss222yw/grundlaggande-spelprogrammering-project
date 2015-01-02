@@ -11,25 +11,6 @@
       <Time>2014-12-15T00:34:28.9025611+01:00</Time>
     </Item>
     <Item>
-      <Source>BackgroundSong.mp3</Source>
-      <Name>BackgroundSong</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\BackgroundSong.xnb</Output>
-      <Extra>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\BackgroundSong.wma</Extra>
-      <Time>2014-12-15T11:26:44.2847419+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles3.png</Source>
-      <Name>Tiles3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\Tiles3.xnb</Output>
-      <Time>2014-12-16T03:08:05.3596469+01:00</Time>
-    </Item>
-    <Item>
       <Source>run3.png</Source>
       <Name>run3</Name>
       <Importer>TextureImporter</Importer>
@@ -138,24 +119,6 @@
       <Time>2014-12-22T23:06:36.7636542+01:00</Time>
     </Item>
     <Item>
-      <Source>Tiles1.jpg</Source>
-      <Name>Tiles1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\Tiles1.xnb</Output>
-      <Time>2014-12-23T23:18:36.0252132+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles2.jpg</Source>
-      <Name>Tiles2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\Tiles2.xnb</Output>
-      <Time>2014-12-23T23:18:36.0552132+01:00</Time>
-    </Item>
-    <Item>
       <Source>waterTile.jpg</Source>
       <Name>waterTile</Name>
       <Importer>TextureImporter</Importer>
@@ -163,51 +126,6 @@
       <Options>None</Options>
       <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\waterTile.xnb</Output>
       <Time>2014-12-25T21:20:38.6654164+01:00</Time>
-    </Item>
-    <Item>
-      <Source>transparent.png</Source>
-      <Name>transparent</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\transparent.xnb</Output>
-      <Time>2014-12-26T01:43:21.3226582+01:00</Time>
-    </Item>
-    <Item>
-      <Source>2.png</Source>
-      <Name>2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\2.xnb</Output>
-      <Time>2014-12-26T01:46:15.1860514+01:00</Time>
-    </Item>
-    <Item>
-      <Source>1.jpg</Source>
-      <Name>1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\1.xnb</Output>
-      <Time>2014-12-26T01:49:34.1617078+01:00</Time>
-    </Item>
-    <Item>
-      <Source>5.png</Source>
-      <Name>5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\5.xnb</Output>
-      <Time>2014-12-26T01:55:17.4164824+01:00</Time>
-    </Item>
-    <Item>
-      <Source>GameOver2.png</Source>
-      <Name>GameOver2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\GameOver2.xnb</Output>
-      <Time>2014-12-27T14:56:45.8287832+01:00</Time>
     </Item>
     <Item>
       <Source>completed.png</Source>
@@ -235,15 +153,6 @@
       <Options>None</Options>
       <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\continueButton.xnb</Output>
       <Time>2014-12-27T17:18:08.907633+01:00</Time>
-    </Item>
-    <Item>
-      <Source>continue.png</Source>
-      <Name>continue</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\continue.xnb</Output>
-      <Time>2014-12-27T17:20:29.4410695+01:00</Time>
     </Item>
     <Item>
       <Source>GameOver.png</Source>
@@ -291,15 +200,6 @@
       <Time>2014-12-29T01:00:51.9776132+01:00</Time>
     </Item>
     <Item>
-      <Source>cube.png</Source>
-      <Name>cube</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\cube.xnb</Output>
-      <Time>2014-12-29T01:06:17.3738411+01:00</Time>
-    </Item>
-    <Item>
       <Source>glass.jpg</Source>
       <Name>glass</Name>
       <Importer>TextureImporter</Importer>
@@ -309,15 +209,6 @@
       <Time>2014-12-29T01:08:23.759797+01:00</Time>
     </Item>
     <Item>
-      <Source>test2.jpg</Source>
-      <Name>test2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\test2.xnb</Output>
-      <Time>2014-12-29T01:45:53.1390475+01:00</Time>
-    </Item>
-    <Item>
       <Source>watereffect.wav</Source>
       <Name>watereffect</Name>
       <Importer>WavImporter</Importer>
@@ -325,6 +216,97 @@
       <Options>None</Options>
       <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\watereffect.xnb</Output>
       <Time>2014-12-29T01:53:39.2658665+01:00</Time>
+    </Item>
+    <Item>
+      <Source>BackgroundSong.mp3</Source>
+      <Name>BackgroundSong</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\BackgroundSong.xnb</Output>
+      <Extra>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\BackgroundSong.wma</Extra>
+      <Time>2014-12-29T19:26:04.6661649+01:00</Time>
+    </Item>
+    <Item>
+      <Source>g1.png</Source>
+      <Name>g1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\g1.xnb</Output>
+      <Time>2014-12-29T19:38:20.7049738+01:00</Time>
+    </Item>
+    <Item>
+      <Source>empty.jpg</Source>
+      <Name>empty</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\empty.xnb</Output>
+      <Time>2014-12-29T20:22:37.8059913+01:00</Time>
+    </Item>
+    <Item>
+      <Source>blue.jpg</Source>
+      <Name>blue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\blue.xnb</Output>
+      <Time>2014-12-29T20:38:00.1563744+01:00</Time>
+    </Item>
+    <Item>
+      <Source>background.jpg</Source>
+      <Name>background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2014-12-29T20:39:16.3546024+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bomb.png</Source>
+      <Name>bomb</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\bomb.xnb</Output>
+      <Time>2014-12-30T22:18:42.2659996+01:00</Time>
+    </Item>
+    <Item>
+      <Source>BombEffect.wav</Source>
+      <Name>BombEffect</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\BombEffect.xnb</Output>
+      <Time>2014-12-31T20:22:27.1656349+01:00</Time>
+    </Item>
+    <Item>
+      <Source>ghost.png</Source>
+      <Name>ghost</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\ghost.xnb</Output>
+      <Time>2015-01-01T15:38:04.6539642+01:00</Time>
+    </Item>
+    <Item>
+      <Source>haha.wav</Source>
+      <Name>haha</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\haha.xnb</Output>
+      <Time>2015-01-02T00:37:34.6834622+01:00</Time>
+    </Item>
+    <Item>
+      <Source>LeaveNow.wav</Source>
+      <Name>LeaveNow</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\LeaveNow.xnb</Output>
+      <Time>2015-01-02T00:59:32.7586271+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

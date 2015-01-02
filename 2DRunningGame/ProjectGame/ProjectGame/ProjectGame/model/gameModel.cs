@@ -12,23 +12,24 @@ namespace ProjectGame.model
         //Some of code created by Dainel Toll.
         private Level m_level;
         private Player m_player;
-        private bool m_hasCollidedWithGround = false,m_hasCollidedWidthTheLeft = false;
-        
+        private Ghost m_ghost;
+        public bool m_hasCollidedWithGround = false, m_hasCollidedWidthTheLeft = false, m_positionLagerThanTheLevel = false;
+        private Vector2 newPos;
+        private Vector2 oldPos;
         public bool isLevelCompleted, isGameOver;
-       
+
 
         class CollisionDetails
         {
-          
             public Vector2 m_speedAfterCollision;
             public Vector2 m_positionAfterCollision;
             public bool m_hasCollidedWithGround = false, m_hasCollidedWidthTheLeft = false;
-            
+
             public CollisionDetails(Vector2 a_oldPos, Vector2 a_velocity)
             {
                 m_positionAfterCollision = a_oldPos;
-               m_speedAfterCollision = a_velocity;
-              
+                m_speedAfterCollision = a_velocity;
+
             }
 
         }
@@ -36,24 +37,26 @@ namespace ProjectGame.model
         /// <summary>
         /// counstruct.
         /// </summary>
-        /// <param name="levelString"></param>
-        public gameModel(string levelString)
+        /// <param name="level"></param>
+        public gameModel(string level)
         {
             m_player = new Player();
-            m_level = new Level(levelString);
-           
+            m_level = new Level(level);
+            m_ghost = new Ghost();
         }
 
 
         public void UpdatePlayer(float a_elapsedTime)
         {
             //Get the old position
-            Vector2 oldPos = m_player.GetPosition();
+            oldPos = m_player.GetPosition();
 
             //Get the new position
             m_player.Update(a_elapsedTime);
 
-            Vector2 newPos = m_player.GetPosition();
+            m_ghost.Update(a_elapsedTime);
+
+            newPos = m_player.GetPosition();
 
             //Collide
             m_hasCollidedWithGround = false;
@@ -66,7 +69,7 @@ namespace ProjectGame.model
                 m_hasCollidedWidthTheLeft = details.m_hasCollidedWidthTheLeft;
                 //set the new speed and position after collision
                 m_player.SetPosition(details.m_positionAfterCollision);
-            //    m_player.SetSpeed(details.m_speedAfterCollision);
+                //    m_player.SetSpeed(details.m_speedAfterCollision);
             }
 
         }
@@ -75,14 +78,14 @@ namespace ProjectGame.model
         private bool didCollide(Vector2 a_centerBottom, Vector2 a_size)
         {
             FloatRectangle occupiedArea = FloatRectangle.createFromCenterBottom(a_centerBottom, a_size);
-         
+
             if (m_level.IsCollidingAt(occupiedArea))
             {
                 return true;
             }
             return false;
         }
-   
+
 
 
         private CollisionDetails getCollisionDetails(Vector2 a_oldPos, Vector2 a_newPosition, Vector2 a_size, Vector2 a_velocity)
@@ -94,7 +97,7 @@ namespace ProjectGame.model
 
             if (didCollide(slidingXPosition, a_size) == false)
             {
-               
+
                 return doOnlyXMovement(ref a_velocity, ret, ref slidingXPosition);
             }
             if (didCollide(slidingYPosition, a_size) == true)
@@ -110,7 +113,7 @@ namespace ProjectGame.model
             }
             else
             {
-                
+
                 return doStandStill(ret, a_velocity);
             }
 
@@ -118,7 +121,10 @@ namespace ProjectGame.model
 
 
 
-
+        /// <summary>
+        /// return if true or false that the player has collided width the left side of the tile.
+        /// </summary>
+        /// <returns>bool</returns>
         public bool hasCollidedWidthTheLeft()
         {
             return m_hasCollidedWidthTheLeft;
@@ -131,20 +137,13 @@ namespace ProjectGame.model
             {
                 ret.m_hasCollidedWithGround = true;
             }
-
-            
-           
             return ret;
         }
 
 
         private static CollisionDetails doOnlyYMovement(ref Vector2 a_velocity, CollisionDetails ret, ref Vector2 slidingYPosition)
         {
-            //a_velocity.X *= -0.50f; //bounce from wall
-            //ret.m_speedAfterCollision = a_velocity;
-
             ret.m_positionAfterCollision = slidingYPosition;
-           
             return ret;
         }
 
@@ -156,9 +155,6 @@ namespace ProjectGame.model
             {
                 ret.m_hasCollidedWithGround = true;
             }
-
-      
-
             return ret;
         }
 
@@ -200,7 +196,7 @@ namespace ProjectGame.model
         {
 
             m_player.charcterMovingSlowlyToRight();
-            
+
         }
 
         /// <summary>
@@ -236,7 +232,7 @@ namespace ProjectGame.model
         /// <returns></returns>
         public Vector2 getPlayerDefaultPosition()
         {
-           return m_player.playerPosition = m_player.DefaultPlayerPosition; 
+            return m_player.playerPosition = m_player.DefaultPlayerPosition;
         }
 
 
@@ -261,20 +257,23 @@ namespace ProjectGame.model
         /// <returns></returns>
         public int nrOfLifes()
         {
-            if (m_player.PlayerPosition.Y >= Level.g_levelHeight)
+            if (m_positionLagerThanTheLevel == true)
             {
                 return loseALife();
             }
-            else
-            {
-                return m_player.Lifes;
-            }
+            return m_player.Lifes;
         }
 
-        private  int loseALife()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>players life - 1</returns>
+        public int loseALife()
         {
+            m_positionLagerThanTheLevel = false;
             return m_player.Lifes -= 1;
         }
+
 
         /// <summary>
         /// cheack if player is dead.
@@ -282,11 +281,10 @@ namespace ProjectGame.model
         /// <returns></returns>
         private bool isDead()
         {
-            loseALife();
-            if (m_player.Lifes == 0)
+            if (nrOfLifes() <= 0)
             {
                 return true;
-                
+
             }
             else
             {
@@ -294,28 +292,42 @@ namespace ProjectGame.model
             }
         }
 
+        /// <summary>
+        /// return true or false if player Y position is less or more than level height
+        /// </summary>
+        /// <returns>bool</returns>
+        public bool didLoselife()
+        {
+            if (m_player.PlayerPosition.Y >= Level.g_levelHeight)
+            {
+
+                return m_positionLagerThanTheLevel = true;
+            }
+
+            return m_positionLagerThanTheLevel = false;
+        }
 
         /// <summary>
         /// cheack if game is over.
         /// </summary>
         public void gameOver()
         {
-            if (m_player.PlayerPosition.Y >= Level.g_levelHeight)
-            {
 
-                if (isDead())
-                {
-                    isGameOver = true;
-                }
-                else
-                {
-                    getPlayerDefaultPosition();
-                }
+            if (isDead())
+            {
+                isGameOver = true;
+            }
+            else if (didLoselife())
+            {
+                GhostDefaultPosition();
+                getPlayerDefaultPosition();
+
             }
             else
             {
                 isGameOver = false;
             }
+
         }
 
         /// <summary>
@@ -323,7 +335,7 @@ namespace ProjectGame.model
         /// </summary>
         public void newLifes()
         {
-            m_player.Lifes = 4;
+            m_player.Lifes = 5;
         }
 
 
@@ -369,5 +381,40 @@ namespace ProjectGame.model
             m_player.charcterMovingSlowlyToRight3();
 
         }
+
+        /// <summary>
+        /// return ghost position.
+        /// </summary>
+        /// <returns></returns>
+        public Vector2 getGhostPosition()
+        {
+            return m_ghost.GetGhostPosition();
+        }
+
+        /// <summary>
+        /// ghost moving to the right .
+        /// </summary>
+        public void ghostMovingToRight()
+        {
+            m_ghost.ghostMovingToRight();
+        }
+
+        /// <summary>
+        /// return default position for the ghost.
+        /// </summary>
+        /// <returns>ghost position</returns>
+        public Vector2 GhostDefaultPosition()
+        {
+            return m_ghost.GetGhostDefaultPosition();
+        }
+
+        /// <summary>
+        /// ghost moving faster to the right.
+        /// </summary>
+        public void ghostMovingFasterToRight()
+        {
+            m_ghost.ghostMovingFasterToRight();
+        }
+
     }
 }

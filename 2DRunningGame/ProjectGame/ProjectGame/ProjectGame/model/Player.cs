@@ -9,12 +9,12 @@ namespace ProjectGame.model
 {
     class Player
     {
-        public Vector2 DefaultPlayerPosition = new Vector2(2.5f, 13);
-        public Vector2 playerPosition = new Vector2(2.5f, 13);
+        public Vector2 DefaultPlayerPosition = new Vector2(1.5f, 18);
+        public Vector2 playerPosition = new Vector2(1.5f, 18);
         private Vector2 m_speed = new Vector2(0, 0);
         public Vector2 m_sizes = new Vector2(0.95f, 0.95f);
         public float frame = 0;
-        private int m_lifes = 4;
+        private int m_lifes = 5;
 
 
         internal void Update(float a_elapsedTime)
@@ -52,7 +52,6 @@ namespace ProjectGame.model
         internal void characterMovingFasterToRight()
         {
             SetSpeed(new Vector2(+4.0f, GetSpeed().Y));
-
             if (frame >= 7)
             {
                 frame = 0;
@@ -110,10 +109,10 @@ namespace ProjectGame.model
         }
 
 
-        internal Vector2 GetSpeed()
-        {
-            return m_speed;
-        }
+            internal Vector2 GetSpeed()
+            {
+                return m_speed;
+            }
 
         internal void SetSpeed(Vector2 a_speed)
         {
@@ -267,8 +266,8 @@ namespace ProjectGame.model
             SetSpeed(new Vector2(+4.0f, GetSpeed().Y));
 
             if (frame >= 7)
-            {
-                frame = 0;
+               {
+                frame = 0;          
             }
             else
             {
@@ -279,3 +278,4 @@ namespace ProjectGame.model
 
 }
 
+    

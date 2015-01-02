@@ -26,6 +26,7 @@ namespace ProjectGame.controller
         EMPTY = 0,
         BLOCKED,
         Background,
-        Water
+        Water,
+        Cloud
     };
 }

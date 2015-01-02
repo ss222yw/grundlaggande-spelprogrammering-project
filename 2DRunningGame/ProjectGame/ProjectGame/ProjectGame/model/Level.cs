@@ -13,25 +13,16 @@ namespace ProjectGame.model
         // some of Code took from (https://code.google.com/p/1dv437arkanoid/source/browse/trunk/Collisions/Collisions2/Model/Level.cs).
 
         public const int g_levelWidth = 140;
-        public const int g_levelHeight = 15;
+        public const int g_levelHeight = 20;
 
         private string m_levels;
 
         internal TileType[,] m_tiles = new TileType[g_levelWidth, g_levelHeight];
-        private  string levelString;
-        private bool isGameOver;
-
-        //public Level(string levels)
-        //{
-        //    m_levels = levels;
-        //    GenerateLevel();
-        //}
 
         public Level(string levelString)
         {
             // TODO: Complete member initialization
             m_levels = levelString;
-           // this.isGameOver = isGameOver;
             GenerateLevel();
         }
 
@@ -57,13 +48,18 @@ namespace ProjectGame.model
                     {
                         m_tiles[x, y] = TileType.Water;
                     }
+
+                    if (m_levels[index] == '4')
+                    {
+                        m_tiles[x, y] = TileType.Cloud;
+                    }
                 }
             }
         }
 
         internal bool IsCollidingAt(FloatRectangle a_rect)
         {
-           Vector2 tileSize = new Vector2(1, 1);
+            Vector2 tileSize = new Vector2(0.9f, 0.9f);
             for (int x = 0; x < g_levelWidth; x++)
             {
                 for (int y = 0; y < g_levelHeight; y++)
@@ -71,7 +67,7 @@ namespace ProjectGame.model
                     FloatRectangle rect = FloatRectangle.createFromTopLeft(new Vector2(x, y), tileSize);
                     if (a_rect.isIntersecting(rect))
                     {
-                        if (m_tiles[x, y] == TileType.BLOCKED || m_tiles[x,y] == TileType.Background)
+                        if (m_tiles[x, y] == TileType.BLOCKED || m_tiles[x, y] == TileType.Background || m_tiles[x, y] == TileType.Cloud)
                         {
                             return true;
                         }

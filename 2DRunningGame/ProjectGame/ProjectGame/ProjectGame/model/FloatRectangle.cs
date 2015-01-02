@@ -8,7 +8,7 @@ namespace ProjectGame.model
 {
     class FloatRectangle
     {
-        // this code tooken from (https://code.google.com/p/1dv437arkanoid/source/browse/trunk/Collisions/Collisions2/Model/FloatRectangle.cs).
+        // this code took from (https://code.google.com/p/1dv437arkanoid/source/browse/trunk/Collisions/Collisions2/Model/FloatRectangle.cs).
         Vector2 m_topLeft;
         Vector2 m_bottomRight;
 

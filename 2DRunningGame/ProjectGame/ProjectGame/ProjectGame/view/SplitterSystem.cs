@@ -12,8 +12,6 @@ namespace ProjectGame.view
         private SplitterParticle[] splitterParticles;
         private const int NUM_PARTICLES = 100;
 
-
-
         public SplitterSystem(Vector2 systemModelStartPosition)
         {
             splitterParticles = new SplitterParticle[NUM_PARTICLES];

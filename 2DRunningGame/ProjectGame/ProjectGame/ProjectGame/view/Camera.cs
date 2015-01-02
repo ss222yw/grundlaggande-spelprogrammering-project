@@ -54,6 +54,18 @@ namespace ProjectGame.view
             return new Microsoft.Xna.Framework.Rectangle(screenX, screenY, (int)(vX * 1f), (int)(vY * 1f));
         }
 
+
+
+        internal float toViewX(float x)
+        {
+            return x * scaleX;
+        }
+
+        internal float toViewY(float y)
+        {
+            return y * scaleY;
+        }
+
         internal Vector2 GetViewPosition(float x, float y, Vector2 a_viewPortSize)
         {
             Vector2 modelPosition = new Vector2(x, y);

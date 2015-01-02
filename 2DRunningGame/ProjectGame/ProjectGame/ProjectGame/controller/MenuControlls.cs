@@ -36,6 +36,7 @@ namespace ProjectGame.controller
             m_MenuPosition = new Vector2(50, 2);
             m_playAgainPosition = new Vector2(GraphicsDevice.Viewport.Width / 2.8f, GraphicsDevice.Viewport.Height / 4);
             m_continuePosition = new Vector2(GraphicsDevice.Viewport.Width / 2.8f, GraphicsDevice.Viewport.Height / 2.8f);
+
         }
 
 
@@ -102,7 +103,7 @@ namespace ProjectGame.controller
         /// <returns>m_rePlayRectangle</returns>
         public Rectangle rePlayBtnRectangle()
         {
-            return m_rePlayRectangle = new Rectangle((int)m_rePlayPosition.X,(int)m_rePlayPosition.Y, (int)m_ButtonsImgSize.X / 2, (int)m_ButtonsImgSize.Y );
+            return m_rePlayRectangle = new Rectangle((int)m_rePlayPosition.X, (int)m_rePlayPosition.Y, (int)m_ButtonsImgSize.X / 2, (int)m_ButtonsImgSize.Y);
         }
 
         /// <summary>

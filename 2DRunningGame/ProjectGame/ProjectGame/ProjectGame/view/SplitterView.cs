@@ -19,9 +19,6 @@ namespace ProjectGame.view
         public float XPosition = 0.7f;
         public float YPosition = 0.8f;
 
-        
-        
-
         internal Vector2 getStartPosition()
         {
             return new Vector2(XPosition, YPosition);
