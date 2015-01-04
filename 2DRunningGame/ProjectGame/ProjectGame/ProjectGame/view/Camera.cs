@@ -12,7 +12,6 @@ namespace ProjectGame.view
     {
         //Source code (https://code.google.com/p/1dv437arkanoid/source/browse/trunk/Collisions/Collisions2/View/Camera.cs)
         private Vector2 m_modelCenterPosition = new Vector2(0, 0);
-        private float m_scale = 64;
         private float scale;
         private float scaleX;
         private float scaleY;
@@ -40,7 +39,7 @@ namespace ProjectGame.view
 
         internal float GetScale()
         {
-            return m_scale;
+            return scale;
         }
 
         internal Microsoft.Xna.Framework.Rectangle translatRec(float x, float y, float p_3)
@@ -70,26 +69,26 @@ namespace ProjectGame.view
         {
             Vector2 modelPosition = new Vector2(x, y);
 
-            Vector2 modelViewPortSize = new Vector2(a_viewPortSize.X / m_scale, a_viewPortSize.Y / m_scale);
+            Vector2 modelViewPortSize = new Vector2(a_viewPortSize.X / scale, a_viewPortSize.Y / scale);
 
             //get model top left position
             Vector2 modelTopLeftPosition = m_modelCenterPosition - modelViewPortSize / 2.0f;
 
 
 
-            return (modelPosition - modelTopLeftPosition) * m_scale;
+            return (modelPosition - modelTopLeftPosition) * scale;
         }
 
         internal void SetZoom(float a_scale)
         {
-            m_scale = a_scale;
+            scale = a_scale;
         }
 
         internal void CenterOn(Vector2 a_newCenterPosition, Vector2 a_viewPortSize, Vector2 a_levelSize)
         {
             m_modelCenterPosition = a_newCenterPosition;
 
-            Vector2 modelViewPortSize = new Vector2(a_viewPortSize.X / m_scale, a_viewPortSize.Y / m_scale);
+            Vector2 modelViewPortSize = new Vector2(a_viewPortSize.X / scale, a_viewPortSize.Y / scale);
 
             //check left
             if (m_modelCenterPosition.X < modelViewPortSize.X / 2.0f)

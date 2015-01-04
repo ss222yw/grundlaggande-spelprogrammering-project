@@ -33,6 +33,7 @@ Content\BombEffect.xnb
 Content\ghost.xnb
 Content\haha.xnb
 Content\LeaveNow.xnb
+Content\rain.xnb
 Content\Level1.txt
 Content\Level2.txt
 Content\Level3.txt

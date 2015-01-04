@@ -87,6 +87,8 @@
     <Compile Include="view\BombView.cs" />
     <Compile Include="view\Camera.cs" />
     <Compile Include="view\MenuView.cs" />
+    <Compile Include="view\RainParticle.cs" />
+    <Compile Include="view\RainView.cs" />
     <Compile Include="view\SplitterParticle.cs" />
     <Compile Include="view\SplitterSystem.cs" />
     <Compile Include="view\SplitterView.cs" />

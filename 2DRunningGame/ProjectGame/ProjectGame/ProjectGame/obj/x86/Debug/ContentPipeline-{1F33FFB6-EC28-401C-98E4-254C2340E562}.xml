@@ -116,7 +116,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\Options2.xnb</Output>
-      <Time>2014-12-22T23:06:36.7636542+01:00</Time>
+      <Time>2015-01-03T17:42:55.7805466+01:00</Time>
     </Item>
     <Item>
       <Source>waterTile.jpg</Source>
@@ -307,6 +307,15 @@
       <Options>None</Options>
       <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\LeaveNow.xnb</Output>
       <Time>2015-01-02T00:59:32.7586271+01:00</Time>
+    </Item>
+    <Item>
+      <Source>rain.png</Source>
+      <Name>rain</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\rain.xnb</Output>
+      <Time>2015-01-02T21:08:12.3771439+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -42,3 +42,4 @@ C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\Pro
 C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\ghost.xnb
 C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\haha.xnb
 C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\LeaveNow.xnb
+C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\rain.xnb

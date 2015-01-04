@@ -89,7 +89,7 @@ namespace ProjectGame.model
         {
 
             using (StreamReader sr = new StreamReader(System.IO.Path.GetFullPath(String.Format("Content/Level{0}.txt", currentLevel))))
-            {
+            {           
                 string lines = sr.ReadToEnd();
                 while (IndexOfN(lines) != -1 && IndexOfR(lines) != -1)
                 {

@@ -11,11 +11,11 @@ namespace ProjectGame.view
 {
     class SplitterView
     {
-         private SpriteBatch m_spriteBatch;
+        private SpriteBatch m_spriteBatch;
         private Texture2D m_SplitterTexture;
         private Camera camera;
         private SplitterSystem splitterSystem;
-
+                
         public float XPosition = 0.7f;
         public float YPosition = 0.8f;
 

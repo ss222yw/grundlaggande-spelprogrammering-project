@@ -73,6 +73,5 @@ namespace ProjectGame.model
         {
             return ghostPosition = DefaultChostrPosition;
         }
-
     }
 }

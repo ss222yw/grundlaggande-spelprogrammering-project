@@ -27,13 +27,15 @@ namespace ProjectGame.controller
         private GameState CurrentGameState = GameState.MainMenu;
         private SpriteFont m_NrOfLifes, m_LevelsFont;
         private SplitterView m_splitterView;
-        private int CurrentLevel = 1;
+        private int CurrentLevel = 3;
         private float elapased;
         private bool paused = false;
         private Vector2 m_levelsTextPosition;
         private float space = 0;
         private List<BombView> bombs = new List<BombView>();
         private BombModel m_BombModel;
+
+        RainParticle m_rainParticle;
 
 
         public MasterController()
@@ -100,7 +102,8 @@ namespace ProjectGame.controller
             MediaPlayer.Play(m_SongLevel1);
             MediaPlayer.Volume = 0.1f;
 
-
+            m_rainParticle = new RainParticle(Content,GraphicsDevice ,15);
+                    
         }
 
         /// <summary>   
@@ -108,7 +111,7 @@ namespace ProjectGame.controller
         /// all content.
         /// </summary>
         protected override void UnloadContent()
-        {
+        {   
             // TODO: Unload any non ContentManager content here
         }
 
@@ -179,7 +182,7 @@ namespace ProjectGame.controller
                     }
                 }
 
-
+                    
                 else if (CurrentLevel == 3)
                 {
 
@@ -261,7 +264,7 @@ namespace ProjectGame.controller
 
                     model.gameOver();
                     model.endOfTheGame();
-
+                    m_rainParticle.Update(elapasedSeconds);
 
                     if (CurrentLevel != 1)
                     {
@@ -272,13 +275,12 @@ namespace ProjectGame.controller
                         {
                             m_BombModel.Update();
 
-                            if (m_View.playerRectangle().Intersects(m_BombModel.bombRectangle()))
+                            if (m_View.playerRectangle().Intersects(bomb.BombRectangle()))
                             {
                                 m_BombEffect.Play();
                                 model.getPlayerDefaultPosition();
                                 model.GhostDefaultPosition();
                                 model.loseALife();
-                                bombs.Count();
                             }
 
                         }
@@ -291,9 +293,10 @@ namespace ProjectGame.controller
                              if (bombs.Count() < 5)
                             {
                                 // add bombs position
-                                m_BombModel = new BombModel(new Vector2(600, 100));
+                                m_BombModel = new BombModel(new Vector2(GraphicsDevice.Viewport.Width / 1.5f, GraphicsDevice.Viewport.Height/4),CurrentLevel);
                                 bombs.Add(new BombView(Content, m_BombModel));
                             }
+
                             // Remove the bomb if it is not visible any more.
                              for (int i = 0; i < bombs.Count; i++)
                              {
@@ -308,6 +311,7 @@ namespace ProjectGame.controller
 
                     if (CurrentLevel == 3)
                     {
+
                         if (m_View.ghostRectangle().Intersects(m_View.playerRectangle()))
                         {
                             m_warningSong.Play();
@@ -453,7 +457,7 @@ namespace ProjectGame.controller
                               new Vector2(Level.g_levelWidth, Level.g_levelHeight));
 
 
-            m_Camera.SetZoom(62);
+            m_Camera.SetZoom(GraphicsDevice.Viewport.Width/12);
 
 
 
@@ -485,12 +489,13 @@ namespace ProjectGame.controller
                     break;
 
                 case GameState.Playing:
-
+                    
                     if (CurrentLevel != 1)
                     {
+                        m_rainParticle.Draw(spriteBatch);
                         foreach (BombView bomb in bombs)
                         {
-                            bomb.Draw(spriteBatch);
+                            bomb.Draw(spriteBatch,m_Camera);
                         }
                     }
 

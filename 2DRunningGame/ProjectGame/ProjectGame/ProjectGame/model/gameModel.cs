@@ -414,6 +414,8 @@ namespace ProjectGame.model
         public void ghostMovingFasterToRight()
         {
             m_ghost.ghostMovingFasterToRight();
+
+      
         }
 
     }

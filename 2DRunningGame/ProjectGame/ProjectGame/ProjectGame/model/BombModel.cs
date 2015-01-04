@@ -12,15 +12,17 @@ namespace ProjectGame.model
         private Vector2 bombPosition;
         private Vector2 velocity;
         public bool isHidden = false;
+        private int m_currentLeve;
 
         /// <summary>
         /// Counstruct
         /// </summary>
         /// <param name="bombOldPosition"></param>
-        public BombModel(Vector2 bombOldPosition)
+        public BombModel(Vector2 bombOldPosition,int currentLevel)
         {
             bombPosition = bombOldPosition;
             velocity = new Vector2(-1.4f, 2.4f);
+            this.m_currentLeve = currentLevel;
         }
 
         /// <summary>
@@ -29,29 +31,36 @@ namespace ProjectGame.model
         public void Update()
         {
             bombPosition += velocity;
-
-            if (bombPosition.Y > Level.g_levelHeight * 23)
+            if (m_currentLeve == 2)
             {
-                velocity.Y = -2.4f;
+        
+                if (bombPosition.Y > Level.g_levelHeight * 23)
+                {
+                    velocity.Y = -2.4f;
+                }
             }
 
-            if (bombPosition.Y - 0 < 40)
+            if (bombPosition.Y  < 30)
             {
                 isHidden = true;
             }
 
         }
 
-
         /// <summary>
-        /// Rectangle.
+        /// get bomb position
         /// </summary>
-        /// <returns>bomb rectangle</returns>
-        public Rectangle bombRectangle()
+        public Vector2 BombPosition
         {
-            return new Rectangle((int)bombPosition.X, (int)bombPosition.Y, 40, 40);
+            get
+            {
+                return bombPosition;
+            }
+            set
+            {
+                bombPosition = value;
+            }
         }
-
 
     }
 }

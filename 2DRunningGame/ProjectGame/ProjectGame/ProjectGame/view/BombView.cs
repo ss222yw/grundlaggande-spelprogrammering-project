@@ -13,6 +13,7 @@ namespace ProjectGame.view
         public Texture2D bombTexture;
         private Microsoft.Xna.Framework.Content.ContentManager Content;
         private BombModel m_BombModel;
+        private Rectangle bombRectangle;
 
         public BombView(Microsoft.Xna.Framework.Content.ContentManager Content, BombModel BombModel)
         {
@@ -22,14 +23,21 @@ namespace ProjectGame.view
             bombTexture = Content.Load<Texture2D>("bomb");
         }
 
-        /// <summary>
-        /// Draw the bomb.
-        /// </summary>
-        /// <param name="sprite"></param>
-        public void Draw(SpriteBatch sprite)
+        internal void Draw(SpriteBatch spriteBatch, Camera a_camera)
         {
-            sprite.Draw(bombTexture, m_BombModel.bombRectangle(), Color.White);
+            float scale = a_camera.GetScale();
+              bombRectangle = new Rectangle((int)m_BombModel.BombPosition.X, (int)(m_BombModel.BombPosition.Y ), (int)scale/2, (int)scale/2);
+            spriteBatch.Draw(bombTexture, bombRectangle, Color.White);
         }
 
+
+        /// <summary>
+        /// return
+        /// </summary>
+        /// <returns>bomb rectangle</returns>
+        public Rectangle BombRectangle()
+        {
+            return bombRectangle;
+        }
     }
 }
