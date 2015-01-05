@@ -27,7 +27,7 @@ namespace ProjectGame.controller
         private GameState CurrentGameState = GameState.MainMenu;
         private SpriteFont m_NrOfLifes, m_LevelsFont;
         private SplitterView m_splitterView;
-        private int CurrentLevel = 3;
+        private int CurrentLevel = 1;
         private float elapased;
         private bool paused = false;
         private Vector2 m_levelsTextPosition;
