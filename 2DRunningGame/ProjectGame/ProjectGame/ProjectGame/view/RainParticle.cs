@@ -76,11 +76,11 @@ namespace ProjectGame.view
         /// spritebatch to rainView.
         /// </summary>
         /// <param name="sprite"></param>
-        public void Draw(SpriteBatch sprite)
+        public void Draw(SpriteBatch sprite,Color color)
         {
             foreach (RainView rain in rainView)
             {
-                rain.DrawRain(sprite);
+                rain.DrawRain(sprite,color);
             }
         }
     }

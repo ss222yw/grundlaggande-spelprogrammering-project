@@ -7,188 +7,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\plong1.xnb</Output>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\plong1.xnb</Output>
       <Time>2014-12-15T00:34:28.9025611+01:00</Time>
-    </Item>
-    <Item>
-      <Source>run3.png</Source>
-      <Name>run3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\run3.xnb</Output>
-      <Time>2014-12-17T00:29:19.3823887+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Pause.png</Source>
-      <Name>Pause</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\Pause.xnb</Output>
-      <Time>2014-12-22T22:17:00.788592+01:00</Time>
-    </Item>
-    <Item>
-      <Source>ex.jpg</Source>
-      <Name>ex</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\ex.xnb</Output>
-      <Time>2014-12-20T23:58:30.0811005+01:00</Time>
-    </Item>
-    <Item>
-      <Source>GameThumbnail.png</Source>
-      <Name>GameThumbnail</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\GameThumbnail.xnb</Output>
-      <Time>2014-12-22T19:01:05.8797056+01:00</Time>
-    </Item>
-    <Item>
-      <Source>MenuBackgroundTransp.png</Source>
-      <Name>MenuBackgroundTransp</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\MenuBackgroundTransp.xnb</Output>
-      <Time>2014-12-22T21:47:49.7348934+01:00</Time>
-    </Item>
-    <Item>
-      <Source>PausedBackground.png</Source>
-      <Name>PausedBackground</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\PausedBackground.xnb</Output>
-      <Time>2014-12-22T21:53:22.3629186+01:00</Time>
-    </Item>
-    <Item>
-      <Source>menu2.png</Source>
-      <Name>menu2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\menu2.xnb</Output>
-      <Time>2014-12-22T22:16:52.6510741+01:00</Time>
-    </Item>
-    <Item>
-      <Source>play2.png</Source>
-      <Name>play2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\play2.xnb</Output>
-      <Time>2014-12-22T22:17:00.8160923+01:00</Time>
-    </Item>
-    <Item>
-      <Source>replay3.png</Source>
-      <Name>replay3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\replay3.xnb</Output>
-      <Time>2014-12-22T22:17:00.8560923+01:00</Time>
-    </Item>
-    <Item>
-      <Source>ResumeButton.png</Source>
-      <Name>ResumeButton</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\ResumeButton.xnb</Output>
-      <Time>2014-12-22T22:17:00.8660923+01:00</Time>
-    </Item>
-    <Item>
-      <Source>help.png</Source>
-      <Name>help</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\help.xnb</Output>
-      <Time>2014-12-22T22:46:27.17231+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Options2.png</Source>
-      <Name>Options2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\Options2.xnb</Output>
-      <Time>2015-01-03T17:42:55.7805466+01:00</Time>
-    </Item>
-    <Item>
-      <Source>waterTile.jpg</Source>
-      <Name>waterTile</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\waterTile.xnb</Output>
-      <Time>2014-12-25T21:20:38.6654164+01:00</Time>
-    </Item>
-    <Item>
-      <Source>completed.png</Source>
-      <Name>completed</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\completed.xnb</Output>
-      <Time>2014-12-27T16:31:55.2336494+01:00</Time>
-    </Item>
-    <Item>
-      <Source>PlayAgain.png</Source>
-      <Name>PlayAgain</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\PlayAgain.xnb</Output>
-      <Time>2014-12-27T16:42:33.5322131+01:00</Time>
-    </Item>
-    <Item>
-      <Source>continueButton.png</Source>
-      <Name>continueButton</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\continueButton.xnb</Output>
-      <Time>2014-12-27T17:18:08.907633+01:00</Time>
-    </Item>
-    <Item>
-      <Source>GameOver.png</Source>
-      <Name>GameOver</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\GameOver.xnb</Output>
-      <Time>2014-12-27T14:37:06.2724133+01:00</Time>
-    </Item>
-    <Item>
-      <Source>SpriteFont1.spritefont</Source>
-      <Name>SpriteFont1</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
-      <Time>2014-12-28T20:21:32.2909082+01:00</Time>
-    </Item>
-    <Item>
-      <Source>theEnd.jpg</Source>
-      <Name>theEnd</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\theEnd.xnb</Output>
-      <Time>2014-12-28T18:41:13.8778854+01:00</Time>
-    </Item>
-    <Item>
-      <Source>LevelsFont.spritefont</Source>
-      <Name>LevelsFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\LevelsFont.xnb</Output>
-      <Time>2014-12-28T20:21:36.9020933+01:00</Time>
     </Item>
     <Item>
       <Source>test.wav</Source>
@@ -196,17 +16,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\test.xnb</Output>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\test.xnb</Output>
       <Time>2014-12-29T01:00:51.9776132+01:00</Time>
-    </Item>
-    <Item>
-      <Source>glass.jpg</Source>
-      <Name>glass</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\glass.xnb</Output>
-      <Time>2014-12-29T01:08:23.759797+01:00</Time>
     </Item>
     <Item>
       <Source>watereffect.wav</Source>
@@ -214,63 +25,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\watereffect.xnb</Output>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\watereffect.xnb</Output>
       <Time>2014-12-29T01:53:39.2658665+01:00</Time>
-    </Item>
-    <Item>
-      <Source>BackgroundSong.mp3</Source>
-      <Name>BackgroundSong</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\BackgroundSong.xnb</Output>
-      <Extra>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\BackgroundSong.wma</Extra>
-      <Time>2014-12-29T19:26:04.6661649+01:00</Time>
-    </Item>
-    <Item>
-      <Source>g1.png</Source>
-      <Name>g1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\g1.xnb</Output>
-      <Time>2014-12-29T19:38:20.7049738+01:00</Time>
-    </Item>
-    <Item>
-      <Source>empty.jpg</Source>
-      <Name>empty</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\empty.xnb</Output>
-      <Time>2014-12-29T20:22:37.8059913+01:00</Time>
-    </Item>
-    <Item>
-      <Source>blue.jpg</Source>
-      <Name>blue</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\blue.xnb</Output>
-      <Time>2014-12-29T20:38:00.1563744+01:00</Time>
-    </Item>
-    <Item>
-      <Source>background.jpg</Source>
-      <Name>background</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2014-12-29T20:39:16.3546024+01:00</Time>
-    </Item>
-    <Item>
-      <Source>bomb.png</Source>
-      <Name>bomb</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\bomb.xnb</Output>
-      <Time>2014-12-30T22:18:42.2659996+01:00</Time>
     </Item>
     <Item>
       <Source>BombEffect.wav</Source>
@@ -278,17 +34,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\BombEffect.xnb</Output>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\BombEffect.xnb</Output>
       <Time>2014-12-31T20:22:27.1656349+01:00</Time>
-    </Item>
-    <Item>
-      <Source>ghost.png</Source>
-      <Name>ghost</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\ghost.xnb</Output>
-      <Time>2015-01-01T15:38:04.6539642+01:00</Time>
     </Item>
     <Item>
       <Source>haha.wav</Source>
@@ -296,7 +43,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\haha.xnb</Output>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\haha.xnb</Output>
       <Time>2015-01-02T00:37:34.6834622+01:00</Time>
     </Item>
     <Item>
@@ -305,8 +52,206 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\LeaveNow.xnb</Output>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\LeaveNow.xnb</Output>
       <Time>2015-01-02T00:59:32.7586271+01:00</Time>
+    </Item>
+    <Item>
+      <Source>run3.png</Source>
+      <Name>run3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\run3.xnb</Output>
+      <Time>2014-12-17T00:29:19.3823887+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Pause.png</Source>
+      <Name>Pause</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\Pause.xnb</Output>
+      <Time>2014-12-22T22:17:00.788592+01:00</Time>
+    </Item>
+    <Item>
+      <Source>ex.jpg</Source>
+      <Name>ex</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\ex.xnb</Output>
+      <Time>2014-12-20T23:58:30.0811005+01:00</Time>
+    </Item>
+    <Item>
+      <Source>GameThumbnail.png</Source>
+      <Name>GameThumbnail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\GameThumbnail.xnb</Output>
+      <Time>2014-12-22T19:01:05.8797056+01:00</Time>
+    </Item>
+    <Item>
+      <Source>MenuBackgroundTransp.png</Source>
+      <Name>MenuBackgroundTransp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\MenuBackgroundTransp.xnb</Output>
+      <Time>2014-12-22T21:47:49.7348934+01:00</Time>
+    </Item>
+    <Item>
+      <Source>PausedBackground.png</Source>
+      <Name>PausedBackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\PausedBackground.xnb</Output>
+      <Time>2014-12-22T21:53:22.3629186+01:00</Time>
+    </Item>
+    <Item>
+      <Source>menu2.png</Source>
+      <Name>menu2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\menu2.xnb</Output>
+      <Time>2014-12-22T22:16:52.6510741+01:00</Time>
+    </Item>
+    <Item>
+      <Source>play2.png</Source>
+      <Name>play2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\play2.xnb</Output>
+      <Time>2014-12-22T22:17:00.8160923+01:00</Time>
+    </Item>
+    <Item>
+      <Source>replay3.png</Source>
+      <Name>replay3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\replay3.xnb</Output>
+      <Time>2014-12-22T22:17:00.8560923+01:00</Time>
+    </Item>
+    <Item>
+      <Source>ResumeButton.png</Source>
+      <Name>ResumeButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\ResumeButton.xnb</Output>
+      <Time>2014-12-22T22:17:00.8660923+01:00</Time>
+    </Item>
+    <Item>
+      <Source>help.png</Source>
+      <Name>help</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\help.xnb</Output>
+      <Time>2014-12-22T22:46:27.17231+01:00</Time>
+    </Item>
+    <Item>
+      <Source>waterTile.jpg</Source>
+      <Name>waterTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\waterTile.xnb</Output>
+      <Time>2014-12-25T21:20:38.6654164+01:00</Time>
+    </Item>
+    <Item>
+      <Source>GameOver.png</Source>
+      <Name>GameOver</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\GameOver.xnb</Output>
+      <Time>2014-12-27T14:37:06.2724133+01:00</Time>
+    </Item>
+    <Item>
+      <Source>completed.png</Source>
+      <Name>completed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\completed.xnb</Output>
+      <Time>2014-12-27T16:31:55.2336494+01:00</Time>
+    </Item>
+    <Item>
+      <Source>PlayAgain.png</Source>
+      <Name>PlayAgain</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\PlayAgain.xnb</Output>
+      <Time>2014-12-27T16:42:33.5322131+01:00</Time>
+    </Item>
+    <Item>
+      <Source>continueButton.png</Source>
+      <Name>continueButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\continueButton.xnb</Output>
+      <Time>2014-12-27T17:18:08.907633+01:00</Time>
+    </Item>
+    <Item>
+      <Source>theEnd.jpg</Source>
+      <Name>theEnd</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\theEnd.xnb</Output>
+      <Time>2014-12-28T18:41:13.8778854+01:00</Time>
+    </Item>
+    <Item>
+      <Source>glass.jpg</Source>
+      <Name>glass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\glass.xnb</Output>
+      <Time>2014-12-29T01:08:23.759797+01:00</Time>
+    </Item>
+    <Item>
+      <Source>g1.png</Source>
+      <Name>g1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\g1.xnb</Output>
+      <Time>2014-12-29T19:38:20.7049738+01:00</Time>
+    </Item>
+    <Item>
+      <Source>empty.jpg</Source>
+      <Name>empty</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\empty.xnb</Output>
+      <Time>2014-12-29T20:22:37.8059913+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bomb.png</Source>
+      <Name>bomb</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\bomb.xnb</Output>
+      <Time>2014-12-30T22:18:42.2659996+01:00</Time>
+    </Item>
+    <Item>
+      <Source>ghost.png</Source>
+      <Name>ghost</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\ghost.xnb</Output>
+      <Time>2015-01-01T15:38:04.6539642+01:00</Time>
     </Item>
     <Item>
       <Source>rain.png</Source>
@@ -314,8 +259,92 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\rain.xnb</Output>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\rain.xnb</Output>
       <Time>2015-01-02T21:08:12.3771439+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Options2.png</Source>
+      <Name>Options2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\Options2.xnb</Output>
+      <Time>2015-01-03T17:42:55.7805466+01:00</Time>
+    </Item>
+    <Item>
+      <Source>texture1.jpg</Source>
+      <Name>texture1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\texture1.xnb</Output>
+      <Time>2015-01-11T02:53:17.1149985+01:00</Time>
+    </Item>
+    <Item>
+      <Source>texture3.jpg</Source>
+      <Name>texture3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\texture3.xnb</Output>
+      <Time>2015-01-11T02:36:18.4824849+01:00</Time>
+    </Item>
+    <Item>
+      <Source>texture2.jpg</Source>
+      <Name>texture2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\texture2.xnb</Output>
+      <Time>2015-01-11T02:51:20.6801616+01:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2014-12-28T20:21:32.2909082+01:00</Time>
+    </Item>
+    <Item>
+      <Source>LevelsFont.spritefont</Source>
+      <Name>LevelsFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\LevelsFont.xnb</Output>
+      <Time>2014-12-28T20:21:36.9020933+01:00</Time>
+    </Item>
+    <Item>
+      <Source>BackgroundSong.mp3</Source>
+      <Name>BackgroundSong</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\BackgroundSong.xnb</Output>
+      <Extra>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\BackgroundSong.wma</Extra>
+      <Time>2014-12-29T19:26:04.6661649+01:00</Time>
+    </Item>
+    <Item>
+      <Source>BackgroundSong2.mp3</Source>
+      <Name>BackgroundSong2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\BackgroundSong2.xnb</Output>
+      <Extra>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\BackgroundSong2.wma</Extra>
+      <Time>2015-01-11T13:08:34.8172137+01:00</Time>
+    </Item>
+    <Item>
+      <Source>backgroundSong3.mp3</Source>
+      <Name>backgroundSong3</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\backgroundSong3.xnb</Output>
+      <Extra>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\backgroundSong3.wma</Extra>
+      <Time>2015-01-11T13:17:34.482428+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -324,10 +353,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGameContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Sahib\Documents\Visual Studio 2010\Projects\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Sahib\Documents\GitHub\grundlaggande-spelprogrammering-project\2DRunningGame\ProjectGame\ProjectGame\ProjectGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

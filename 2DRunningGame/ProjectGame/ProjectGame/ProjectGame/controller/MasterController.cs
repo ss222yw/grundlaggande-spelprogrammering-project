@@ -18,7 +18,7 @@ namespace ProjectGame.controller
         SpriteBatch spriteBatch;
 
         private SoundEffect m_soundEffect, m_destroyedEffect, m_waterEffect, m_BombEffect, m_hahaEfect, m_warningSong;
-        private Song m_SongLevel1;
+        private Song m_song, m_SongLevel1, m_songLevel2, m_songLevel3;
         private Camera m_Camera;
         private View m_View;
         private gameModel model;
@@ -34,18 +34,15 @@ namespace ProjectGame.controller
         private float space = 0;
         private List<BombView> bombs = new List<BombView>();
         private BombModel m_BombModel;
-
-        RainParticle m_rainParticle;
+        private RainParticle m_rainParticle;
+        private bool isPlayed = false, isPlayed1 = false, isPlayed2 = false, isPlayed3 = false;
+        private bool isHit;
 
 
         public MasterController()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-
-            //graphics.PreferredBackBufferWidth = 600;
-            //graphics.PreferredBackBufferHeight = 400;
-            //graphics.ApplyChanges();
         }
 
 
@@ -76,34 +73,27 @@ namespace ProjectGame.controller
 
             m_levelsTextPosition = new Vector2(GraphicsDevice.Viewport.Width / 1.35f, GraphicsDevice.Viewport.Height / 100);
             m_View = new View(GraphicsDevice, Content);
+
             m_soundEffect = Content.Load<SoundEffect>("plong1");
             m_destroyedEffect = Content.Load<SoundEffect>("test");
             m_waterEffect = Content.Load<SoundEffect>("watereffect");
             m_BombEffect = Content.Load<SoundEffect>("BombEffect");
             m_hahaEfect = Content.Load<SoundEffect>("haha");
-
             m_SongLevel1 = Content.Load<Song>("BackgroundSong");
+            m_songLevel2 = Content.Load<Song>("BackgroundSong2");
+            m_songLevel3 = Content.Load<Song>("backgroundSong3");
             m_warningSong = Content.Load<SoundEffect>("LeaveNow");
-            m_Camera = new Camera(GraphicsDevice.Viewport);
-            m_MenuController = new MenuControlls(GraphicsDevice);
-            m_MenuView = new MenuView(GraphicsDevice, Content, spriteBatch, m_MenuController);
-
             m_NrOfLifes = Content.Load<SpriteFont>("SpriteFont1");
             m_LevelsFont = Content.Load<SpriteFont>("LevelsFont");
 
+            m_Camera = new Camera(GraphicsDevice.Viewport);
+            m_MenuController = new MenuControlls(GraphicsDevice);
+            m_MenuView = new MenuView(GraphicsDevice, Content, spriteBatch, m_MenuController);
             m_splitterView = new SplitterView(GraphicsDevice, Content);
+            model = new gameModel();
+            model.LoadLevel(Level.Maps(CurrentLevel));
+            m_rainParticle = new RainParticle(Content, GraphicsDevice, 15);
 
-
-            // TODO: use this.Content to load your game content here
-            model = new gameModel(Level.Maps(CurrentLevel));
-
-
-
-            MediaPlayer.Play(m_SongLevel1);
-            MediaPlayer.Volume = 0.1f;
-
-            m_rainParticle = new RainParticle(Content,GraphicsDevice ,15);
-                    
         }
 
         /// <summary>   
@@ -111,10 +101,19 @@ namespace ProjectGame.controller
         /// all content.
         /// </summary>
         protected override void UnloadContent()
-        {   
+        {
             // TODO: Unload any non ContentManager content here
         }
 
+        private void isSongPlayed()
+        {
+            if (isPlayed == true)
+            {
+                MediaPlayer.Play(m_song);
+                isPlayed = false;
+            }
+
+        }
 
         /// <summary>
         /// Allows the game to run logic such as updating the world,
@@ -124,7 +123,7 @@ namespace ProjectGame.controller
         protected override void Update(GameTime gameTime)
         {
 
-
+            isSongPlayed();
             MouseState m_mouse = Mouse.GetState();
 
             //if exit button is clicked then exit the game.
@@ -142,19 +141,15 @@ namespace ProjectGame.controller
             {
                 if (CurrentLevel == 1)
                 {
-
-
                     //Cheack keyboard input.
                     if (m_View.IsCharacterMovingToRight())
                     {
                         model.characterMovingFasterToRight();
-
                     }
 
                     else if (m_View.IsCharacterMovingToLeft())
                     {
                         model.charcterMovingSlowlyToRight();
-
                     }
 
                     else
@@ -182,11 +177,12 @@ namespace ProjectGame.controller
                     }
                 }
 
-                    
+
                 else if (CurrentLevel == 3)
                 {
 
                     model.ghostMovingToRight();
+
                     //Cheack keyboard input.
                     if (m_View.IsCharacterMovingToRight())
                     {
@@ -239,6 +235,8 @@ namespace ProjectGame.controller
 
                     if (m_MenuController.isClickedToRePlay)
                     {
+                        bombs.Clear();
+                        space = 0;
                         model.newLifes();
                         CurrentGameState = GameState.Playing;
                         model.getPlayerDefaultPosition();
@@ -255,10 +253,7 @@ namespace ProjectGame.controller
                 case GameState.Options:
 
                     Menu();
-
                     break;
-
-
 
                 case GameState.Playing:
 
@@ -266,54 +261,49 @@ namespace ProjectGame.controller
                     model.endOfTheGame();
                     m_rainParticle.Update(elapasedSeconds);
 
-                    if (CurrentLevel != 1)
+                    if (CurrentLevel == 1)
                     {
-
-                        space += elapasedSeconds;
-
-                        foreach (BombView bomb in bombs)
+                        if (isPlayed == false && isPlayed1 == false)
                         {
-                            m_BombModel.Update();
-
-                            if (m_View.playerRectangle().Intersects(bomb.BombRectangle()))
-                            {
-                                m_BombEffect.Play();
-                                model.getPlayerDefaultPosition();
-                                model.GhostDefaultPosition();
-                                model.loseALife();
-                            }
-
+                            m_song = m_SongLevel1;
+                            isPlayed = true;
+                            isPlayed1 = true;
+                            isPlayed2 = false;
+                            isPlayed3 = false;
                         }
-                        // the space between the boms is larger or equals 6 , make it zero.
-                        if (space >= 6)
+                    }
+
+                    if (CurrentLevel == 2)
+                    {
+                        if (isPlayed == false && isPlayed2 == false)
                         {
-                            space = 0;
-
-                            // add 5 bombs when it is less than 5
-                             if (bombs.Count() < 5)
-                            {
-                                // add bombs position
-                                m_BombModel = new BombModel(new Vector2(GraphicsDevice.Viewport.Width / 1.5f, GraphicsDevice.Viewport.Height/4),CurrentLevel);
-                                bombs.Add(new BombView(Content, m_BombModel));
-                            }
-
-                            // Remove the bomb if it is not visible any more.
-                             for (int i = 0; i < bombs.Count; i++)
-                             {
-                                 if (m_BombModel.isHidden)
-                                 {
-                                     bombs.RemoveAt(i);
-                                     i -= 1;
-                                 }
-                             }
+                            m_song = m_songLevel2;
+                            isPlayed = true;
+                            isPlayed2 = true;
+                            isPlayed1 = false;
+                            isPlayed3 = false;
                         }
+
+
+                        Bombs(elapasedSeconds);
                     }
 
                     if (CurrentLevel == 3)
                     {
 
+                        if (isPlayed == false && isPlayed3 == false)
+                        {
+                            m_song = m_songLevel3;
+                            isPlayed = true;
+                            isPlayed3 = true;
+                            isPlayed2 = false;
+                            isPlayed1 = false;
+                        }
+
+                        Bombs(elapasedSeconds);
                         if (m_View.ghostRectangle().Intersects(m_View.playerRectangle()))
                         {
+                            bombs.Clear();
                             m_warningSong.Play();
                             model.getPlayerDefaultPosition();
                             model.GhostDefaultPosition();
@@ -341,6 +331,8 @@ namespace ProjectGame.controller
 
                     if (model.isGameOver)
                     {
+                        space = 0;
+                        bombs.Clear();
                         CurrentGameState = GameState.GameOver;
                         m_MenuController.isCklickedToPlay = false;
                         m_MenuController.IsClickedToPlayAgain = false;
@@ -351,6 +343,8 @@ namespace ProjectGame.controller
 
                     if (model.isLevelCompleted)
                     {
+                        bombs.Clear();
+                        space = 0;
                         CurrentGameState = GameState.Finish;
                         paused = true;
                         m_MenuController.isClickedToContinue = false;
@@ -358,6 +352,7 @@ namespace ProjectGame.controller
 
                     if (model.m_positionLagerThanTheLevel && model.hasCollidedWidthTheLeft() == false)
                     {
+                        bombs.Clear();
                         m_waterEffect.Play();
                     }
 
@@ -382,7 +377,6 @@ namespace ProjectGame.controller
 
                 case GameState.GameOver:
 
-
                     if (m_MenuController.IsClickedToPlayAgain || m_View.IsClickedToPlayAgain())
                     {
                         model.getPlayerDefaultPosition();
@@ -391,7 +385,8 @@ namespace ProjectGame.controller
                         paused = false;
                         model.newLifes();
                         CurrentLevel = 1;
-                        model = new gameModel(Level.Maps(CurrentLevel));
+                        model = new gameModel();
+                        model.LoadLevel(Level.Maps(CurrentLevel));
                         CurrentGameState = GameState.Playing;
                     }
 
@@ -401,6 +396,7 @@ namespace ProjectGame.controller
 
                     if (m_MenuController.isClickedToContinue)
                     {
+                        space = 0;
                         model.getPlayerDefaultPosition();
                         model.GhostDefaultPosition();
                         model.isLevelCompleted = false;
@@ -411,16 +407,64 @@ namespace ProjectGame.controller
 
                         if (CurrentLevel == 1 || CurrentLevel == 2)
                         {
-                            model = new gameModel(Level.Maps(CurrentLevel += 1));
+                            model = new gameModel();
                             CurrentGameState = GameState.Playing;
+                            model.LoadLevel(Level.Maps(CurrentLevel += 1));
                         }
 
                     }
                     break;
             }
             m_MenuController.mousePosition(m_mouse);
-
             base.Update(gameTime);
+        }
+
+        private void Bombs(float timer)
+        {
+            space += timer;
+
+            foreach (BombView bomb in bombs)
+            {
+
+                m_BombModel.Update();
+
+                if (m_View.playerRectangle().Intersects(bomb.BombRectangle()))
+                {
+                    m_BombEffect.Play();
+                    isHit = true;
+                    model.getPlayerDefaultPosition();
+                    model.GhostDefaultPosition();
+                    model.loseALife();
+                }
+            }
+
+            if (isHit)
+            {
+                bombs.Clear();
+                isHit = false;
+            }
+
+
+            // the space between the boms is larger or equals 5 , make it zero.
+            if (space >= 5)
+            {
+                space = 0;
+
+                // add bombs position
+                m_BombModel = new BombModel(new Vector2(GraphicsDevice.Viewport.Width / 1.5f, GraphicsDevice.Viewport.Height / 6), CurrentLevel);
+                bombs.Add(new BombView(Content, m_BombModel));
+                
+
+                // Remove the bomb if it is not visible any more.
+                for (int i = 0; i < bombs.Count; i++)
+                {
+                    if (m_BombModel.isHidden)
+                    {
+                        bombs.RemoveAt(i);
+                        i -= 1;
+                    }
+                }
+            }
         }
 
         private void Menu()
@@ -448,7 +492,6 @@ namespace ProjectGame.controller
             GraphicsDevice.Clear(Color.White);
             spriteBatch.Begin();
             Level level = model.GetLevel();
-            //get the playerposition for the view
 
 
             //update camera
@@ -456,16 +499,11 @@ namespace ProjectGame.controller
                               new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height),
                               new Vector2(Level.g_levelWidth, Level.g_levelHeight));
 
-
-            m_Camera.SetZoom(GraphicsDevice.Viewport.Width/12);
-
+            m_Camera.SetZoom(GraphicsDevice.Viewport.Width / 12);
 
 
             //draw background and player 
             m_View.DrawLevel(level, m_Camera, model);
-
-
-            // TODO: Add your drawing code here 
 
             // Switch sats to draw the right texture in the right gamestate.
             switch (CurrentGameState)
@@ -489,13 +527,20 @@ namespace ProjectGame.controller
                     break;
 
                 case GameState.Playing:
-                    
+
                     if (CurrentLevel != 1)
                     {
-                        m_rainParticle.Draw(spriteBatch);
+                        if (CurrentLevel == 2)
+                        {
+                            m_rainParticle.Draw(spriteBatch,Color.White);
+                        }
+                        if(CurrentLevel == 3)
+                        {
+                            m_rainParticle.Draw(spriteBatch,Color.Red);
+                        }
                         foreach (BombView bomb in bombs)
                         {
-                            bomb.Draw(spriteBatch,m_Camera);
+                            bomb.Draw(spriteBatch, m_Camera);
                         }
                     }
 
@@ -508,16 +553,16 @@ namespace ProjectGame.controller
 
                     if (CurrentLevel == 1)
                     {
-                        spriteBatch.DrawString(m_LevelsFont, "Level one", m_levelsTextPosition, Color.Black);
+                        spriteBatch.DrawString(m_LevelsFont, "Level one", m_levelsTextPosition, Color.Yellow);
                     }
                     else if (CurrentLevel == 2)
                     {
-                        spriteBatch.DrawString(m_LevelsFont, "Level two", m_levelsTextPosition, Color.Black);
+                        spriteBatch.DrawString(m_LevelsFont, "Level two", m_levelsTextPosition, Color.Yellow);
                     }
                     else if (CurrentLevel == 3)
                     {
                         m_View.drawGhost();
-                        spriteBatch.DrawString(m_LevelsFont, "Level three", m_levelsTextPosition, Color.Black);
+                        spriteBatch.DrawString(m_LevelsFont, "Level three", m_levelsTextPosition, Color.Yellow);
                     }
 
                     paused = false;
@@ -527,7 +572,7 @@ namespace ProjectGame.controller
                     model.endOfTheGame();
 
                     var Count = model.nrOfLifes();
-                    spriteBatch.DrawString(m_NrOfLifes, "Lifes" + " = " + Count, new Vector2(GraphicsDevice.Viewport.Width / 1.35f, GraphicsDevice.Viewport.Height / 18), Color.Black);
+                    spriteBatch.DrawString(m_NrOfLifes, "Lifes : " + Count, new Vector2(GraphicsDevice.Viewport.Width / 1.35f, GraphicsDevice.Viewport.Height / 18), Color.Yellow);
 
                     break;
 
@@ -540,6 +585,7 @@ namespace ProjectGame.controller
 
                 case GameState.GameOver:
                     MediaPlayer.Stop();
+                    isPlayed = false;
                     m_MenuView.DrawGameOver();
                     m_MenuView.DrawPlayAgainBtn();
                     m_MenuView.DrawReturnButton();
@@ -559,7 +605,7 @@ namespace ProjectGame.controller
                         m_MenuView.drawExit();
                     }
                     MediaPlayer.Stop();
-
+                    isPlayed = false;
                     break;
             }
             spriteBatch.End();

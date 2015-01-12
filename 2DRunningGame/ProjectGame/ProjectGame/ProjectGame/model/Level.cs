@@ -14,19 +14,12 @@ namespace ProjectGame.model
 
         public const int g_levelWidth = 140;
         public const int g_levelHeight = 20;
+        public static int CurrentLevel;
 
-        private string m_levels;
 
         internal TileType[,] m_tiles = new TileType[g_levelWidth, g_levelHeight];
 
-        public Level(string levelString)
-        {
-            // TODO: Complete member initialization
-            m_levels = levelString;
-            GenerateLevel();
-        }
-
-        private void GenerateLevel()
+        public void GenerateLevel(string levels)
         {
             for (int x = 0; x < g_levelWidth; x++)
             {
@@ -34,24 +27,19 @@ namespace ProjectGame.model
                 {
                     int index = y * g_levelWidth + x;
 
-                    if (m_levels[index] == '1')
+                    if (levels[index] == '1')
                     {
                         m_tiles[x, y] = TileType.BLOCKED;
                     }
 
-                    if (m_levels[index] == '2')
+                    if (levels[index] == '2')
                     {
                         m_tiles[x, y] = TileType.Background;
                     }
 
-                    if (m_levels[index] == '3')
+                    if (levels[index] == '3')
                     {
                         m_tiles[x, y] = TileType.Water;
-                    }
-
-                    if (m_levels[index] == '4')
-                    {
-                        m_tiles[x, y] = TileType.Cloud;
                     }
                 }
             }
@@ -67,7 +55,7 @@ namespace ProjectGame.model
                     FloatRectangle rect = FloatRectangle.createFromTopLeft(new Vector2(x, y), tileSize);
                     if (a_rect.isIntersecting(rect))
                     {
-                        if (m_tiles[x, y] == TileType.BLOCKED || m_tiles[x, y] == TileType.Background || m_tiles[x, y] == TileType.Cloud)
+                           if (m_tiles[x, y] == TileType.BLOCKED || m_tiles[x, y] == TileType.Background)
                         {
                             return true;
                         }
@@ -87,10 +75,12 @@ namespace ProjectGame.model
         /// <returns></returns>
         public static string Maps(int currentLevel)
         {
+            CurrentLevel = currentLevel;
 
             using (StreamReader sr = new StreamReader(System.IO.Path.GetFullPath(String.Format("Content/Level{0}.txt", currentLevel))))
-            {           
-                string lines = sr.ReadToEnd();
+            {
+               string lines = sr.ReadToEnd(); 
+
                 while (IndexOfN(lines) != -1 && IndexOfR(lines) != -1)
                 {
                     if (IndexOfN(lines) != -1)

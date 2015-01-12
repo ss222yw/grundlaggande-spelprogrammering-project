@@ -17,16 +17,20 @@ namespace ProjectGame.view
 
         public BombView(Microsoft.Xna.Framework.Content.ContentManager Content, BombModel BombModel)
         {
-            // TODO: Complete member initialization
             this.m_BombModel = BombModel;
             this.Content = Content;
             bombTexture = Content.Load<Texture2D>("bomb");
         }
 
+        /// <summary>
+        /// draw bombs
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        /// <param name="a_camera"></param>
         internal void Draw(SpriteBatch spriteBatch, Camera a_camera)
         {
             float scale = a_camera.GetScale();
-              bombRectangle = new Rectangle((int)m_BombModel.BombPosition.X, (int)(m_BombModel.BombPosition.Y ), (int)scale/2, (int)scale/2);
+            bombRectangle = new Rectangle((int)m_BombModel.BombPosition.X, (int)(m_BombModel.BombPosition.Y), (int)scale / 2, (int)scale / 2);
             spriteBatch.Draw(bombTexture, bombRectangle, Color.White);
         }
 

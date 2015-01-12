@@ -39,10 +39,10 @@ namespace ProjectGame.view
         /// Draw rain texture.
         /// </summary>
         /// <param name="sprite"></param>
-        public void DrawRain(SpriteBatch sprite)
+        public void DrawRain(SpriteBatch sprite,Color color)
         {
             Rectangle rainRectangle = new Rectangle((int)m_RainPosition.X, (int)m_RainPosition.Y, 7, 7);
-            sprite.Draw(m_RainTexture, rainRectangle, Color.White);
+            sprite.Draw(m_RainTexture, rainRectangle, color);
         }
 
 

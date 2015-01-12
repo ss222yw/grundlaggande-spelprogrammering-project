@@ -17,19 +17,15 @@ namespace ProjectGame.view
 
         private SpriteBatch m_spriteBatch;
         private GraphicsDevice m_graphics;
-        private Texture2D m_Texture, m_tileTexture, m_emptyTexture, m_blockTexture, m_backgroundTexture, m_WaterTexture, m_cloudTexture, m_ghostTexture;
+        private Texture2D m_Texture, m_tileTexture, m_emptyTexture, m_blockTexture, m_backgroundTexture, m_WaterTexture, m_ghostTexture;
         private Rectangle destrect;
-        private Texture2D m_ExplosionTexture;
-        private Camera camera;
-        private Vector2 size;
-        private int numFramesX = 4;
-        private int imgSize;
         private Rectangle destRectGhost;
         private Vector2 ghostViewPos;
         private Vector2 viewportSize;
         private float scale;
         private Camera m_camera;
         private gameModel m_model;
+        private Texture2D m_Level1Background, m_Level2Background, m_Level3Background;
 
         /// <summary>
         /// Constructor (loading all images).
@@ -39,20 +35,16 @@ namespace ProjectGame.view
         public View(GraphicsDevice GraphicsDevice, Microsoft.Xna.Framework.Content.ContentManager Content)
         {
             m_spriteBatch = new SpriteBatch(GraphicsDevice);
-
             m_Texture = Content.Load<Texture2D>("run3");
             m_blockTexture = Content.Load<Texture2D>("g1");
-            m_emptyTexture = Content.Load<Texture2D>("background");
             m_backgroundTexture = Content.Load<Texture2D>("glass");
             m_WaterTexture = Content.Load<Texture2D>("waterTile");
-            m_cloudTexture = Content.Load<Texture2D>("blue");
             m_ghostTexture = Content.Load<Texture2D>("ghost");
-
+            m_Level1Background = Content.Load<Texture2D>("texture1");
+            m_Level2Background = Content.Load<Texture2D>("texture2");
+            m_Level3Background = Content.Load<Texture2D>("texture3");
             this.m_graphics = GraphicsDevice;
         }
-
-
-
 
 
         /// <summary>
@@ -74,39 +66,42 @@ namespace ProjectGame.view
 
             m_spriteBatch.Begin();
 
+            if (Level.CurrentLevel == 1)
+            {
+                m_spriteBatch.Draw(m_Level1Background, new Rectangle(0, 0, (int)viewportSize.X, (int)viewportSize.Y), Color.White);
+            }
+
+            else if (Level.CurrentLevel == 2)
+            {
+                m_spriteBatch.Draw(m_Level2Background, new Rectangle(0, 0, (int)viewportSize.X, (int)viewportSize.Y), Color.White);
+            }
+
+            else if (Level.CurrentLevel == 3)
+            {
+                m_spriteBatch.Draw(m_Level3Background, new Rectangle(0, 0, (int)viewportSize.X, (int)viewportSize.Y), Color.DarkRed);
+            }
+
             for (int x = 0; x < Level.g_levelWidth; x++)
             {
                 for (int y = 0; y < Level.g_levelHeight; y++)
                 {
                     Vector2 viewPos = a_camera.GetViewPosition(x, y, viewportSize);
-
+                    //Destination rectangle in windows coordinates only scaling
+                    Rectangle destRect = new Rectangle((int)viewPos.X, (int)viewPos.Y, (int)scale, (int)scale);
 
                     if (a_level.m_tiles[x, y] == TileType.BLOCKED)
                     {
-                        m_tileTexture = m_blockTexture;
+                        m_spriteBatch.Draw(m_blockTexture, destRect, Color.White);
                     }
                     else if (a_level.m_tiles[x, y] == TileType.Background)
                     {
-                        m_tileTexture = m_backgroundTexture;
+                        m_spriteBatch.Draw(m_backgroundTexture, destRect, Color.White);
                     }
 
                     else if (a_level.m_tiles[x, y] == TileType.Water)
                     {
-                        m_tileTexture = m_WaterTexture;
+                        m_spriteBatch.Draw(m_WaterTexture, destRect, Color.White);
                     }
-                    else if (a_level.m_tiles[x, y] == TileType.Cloud)
-                    {
-                        m_tileTexture = m_cloudTexture;
-                    }
-
-                    else if (a_level.m_tiles[Level.g_levelWidth / 2, Level.g_levelHeight / 2] == TileType.EMPTY)
-                    {
-                        m_tileTexture = m_emptyTexture;
-                    }
-                    //Destination rectangle in windows coordinates only scaling
-                    Rectangle destRect = new Rectangle((int)viewPos.X, (int)viewPos.Y, (int)scale, (int)scale);
-
-                    m_spriteBatch.Draw(m_tileTexture, destRect, Color.White);
 
                 }
             }
@@ -127,9 +122,7 @@ namespace ProjectGame.view
             destrect = new Rectangle((int)(viewpos.X - scale / 2), (int)(viewpos.Y - scale), (int)scale, (int)scale);
             Rectangle animationRect = new Rectangle(m_Texture.Width / 8 * (int)model.getFrame(), 0, m_Texture.Width / 8, m_Texture.Height / 2);
 
-            //draw tiles.
             m_spriteBatch.Draw(m_Texture, destrect, animationRect, color);
-
 
             m_spriteBatch.End();
         }

@@ -14,8 +14,13 @@ namespace ProjectGame.model
         private Vector2 m_speed = new Vector2(0, 0);
         public Vector2 m_sizes = new Vector2(0.95f, 0.95f);
         public float frame = 0;
-        private int m_lifes = 5;
+        private int m_lifes;
 
+
+        public Player()
+        {
+            m_lifes = 5;
+        }
 
         internal void Update(float a_elapsedTime)
         {

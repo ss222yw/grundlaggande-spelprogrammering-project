@@ -29,7 +29,6 @@ namespace ProjectGame.model
             {
                 m_positionAfterCollision = a_oldPos;
                 m_speedAfterCollision = a_velocity;
-
             }
 
         }
@@ -38,11 +37,17 @@ namespace ProjectGame.model
         /// counstruct.
         /// </summary>
         /// <param name="level"></param>
-        public gameModel(string level)
+        public gameModel()
         {
+
             m_player = new Player();
-            m_level = new Level(level);
+            m_level = new Level();
             m_ghost = new Ghost();
+        }
+
+        public void LoadLevel(string level)
+        {
+            m_level.GenerateLevel(level);
         }
 
 
@@ -417,6 +422,7 @@ namespace ProjectGame.model
 
       
         }
+
 
     }
 }
